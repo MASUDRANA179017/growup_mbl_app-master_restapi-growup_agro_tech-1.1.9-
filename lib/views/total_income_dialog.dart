@@ -43,7 +43,7 @@ class _TotalIncomeDialogState extends State<TotalIncomeDialog> {
 
       final response = await http.get(
         Uri.parse(
-            'https://growupagro.tech/api/investor/pop-up/total-income?investor_code=$investorCode'),
+            '${ApiConstants.imgBaseUrl}/api/investor/pop-up/total-income?investor_code=$investorCode'),
         headers: {
           'Authorization': 'Bearer $token',
           'Accept': 'application/json',

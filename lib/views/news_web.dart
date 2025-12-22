@@ -13,7 +13,7 @@
 //   late final WebViewController _controller;
 //   bool _isLoading = true;
 //
-//   static const String _initialUrl = 'https://growupagro.tech/news';
+//   static const String _initialUrl = '${ApiConstants.imgBaseUrl}/news';
 //
 //   @override
 //   void initState() {
@@ -88,7 +88,7 @@ class NewsPage extends StatefulWidget {
 }
 
 class _NewsPageState extends State<NewsPage> {
-  // static const String _url = 'https://growupagro.tech/news';
+  // static const String _url = '${ApiConstants.imgBaseUrl}/news';
   final String _url = ApiConstants.newsUrl;
 
   @override

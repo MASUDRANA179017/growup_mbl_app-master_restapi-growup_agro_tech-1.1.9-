@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import '../utils/api_constants.dart';
 import '../widgets/invoice_action_buttons.dart'; // 👈 Your global button widget
 
 class TaxCertificatePage extends StatefulWidget {
@@ -47,7 +48,7 @@ class _TaxCertificatePageState extends State<TaxCertificatePage>
       }
 
       final url = Uri.parse(
-          'https://growupagro.tech/api/tax-certificates?investor_code=$_investorCode');
+          '${ApiConstants.imgBaseUrl}/api/tax-certificates?investor_code=$_investorCode');
 
       final response = await http.get(
         url,
@@ -169,9 +170,9 @@ class _TaxCertificatePageState extends State<TaxCertificatePage>
 
               // Generate dynamic URLs
               final viewUrl =
-                  'https://growupagro.tech/api/investor/tax-certificates/${fiscal['start']}?investor_code=$_investorCode';
+                  '${ApiConstants.imgBaseUrl}/api/investor/tax-certificates/${fiscal['start']}?investor_code=$_investorCode';
               final downloadUrl =
-                  'https://growupagro.tech/api/investor/tax-certificates/${fiscal['start']}/download?investor_code=$_investorCode';
+                  '${ApiConstants.imgBaseUrl}/api/investor/tax-certificates/${fiscal['start']}/download?investor_code=$_investorCode';
 
               return Container(
                 margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 6),

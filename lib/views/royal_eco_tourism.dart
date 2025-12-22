@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:growup_agro/widgets/custom_button.dart';
 
+import '../utils/api_constants.dart';
+
 class EcotourismCityPage extends StatefulWidget {
   const EcotourismCityPage({super.key});
 
@@ -19,7 +21,7 @@ class _EcotourismCityPageState extends State<EcotourismCityPage> {
       "title": "The Royal Agri-Eco Tourism",
       "location": "The Royal Eco City",
       "image":
-          "https://growupagro.tech/storage/uploads/property/packages/68d986a178f81.jpeg",
+          "${ApiConstants.imgBaseUrl}/storage/uploads/property/packages/68d986a178f81.jpeg",
       "beds": "10",
       "baths": "6",
       "size": "8000 sqft",

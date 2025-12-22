@@ -143,7 +143,7 @@ class _ProductDetailsPageState extends State<ProductDetailsPage> {
                     ),
                     items: product.imageUrls.map((url) {
                       return Image.network(
-                        "https://growupagro.tech$url",
+                        "${ApiConstants.imgBaseUrl}$url",
                         width: double.infinity,
                         fit: BoxFit.cover,
                         errorBuilder: (context, _, __) => Container(

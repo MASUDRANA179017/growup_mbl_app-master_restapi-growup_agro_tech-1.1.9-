@@ -48,7 +48,7 @@ class _MyOrdersPageState extends State<MyOrdersPage> {
     final url = Uri.parse(ApiConstants.myOrders(investorCode));
 
     final response = await http.get(
-      // Uri.parse("https://growupagro.tech/api/my-orders?investor_code=$investorCode"),
+      // Uri.parse("${ApiConstants.imgBaseUrl}/api/my-orders?investor_code=$investorCode"),
       url,
       headers: {
         'Authorization': 'Bearer $token',

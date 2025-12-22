@@ -502,7 +502,7 @@ class _ProjectDescriptionPageState extends State<ProjectDescriptionPage> {
                         try {
                           final res = await http.post(
                             Uri.parse(
-                              'https://growupagro.tech/api/investor/invest-now',
+                              '${ApiConstants.imgBaseUrl}/api/investor/invest-now',
                             ),
                             headers: {
                               'Authorization': 'Bearer $token',
@@ -922,7 +922,7 @@ class _ProjectDescriptionPageState extends State<ProjectDescriptionPage> {
                               try {
                                 final response = await http.post(
                                   Uri.parse(
-                                    'https://growupagro.tech/api/investor/invest-now',
+                                    '${ApiConstants.imgBaseUrl}/api/investor/invest-now',
                                   ),
                                   headers: {
                                     'Content-Type': 'application/json',

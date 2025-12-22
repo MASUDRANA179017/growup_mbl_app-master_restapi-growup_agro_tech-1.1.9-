@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:growup_agro/widgets/custom_button.dart';
 
+import '../utils/api_constants.dart';
+
 class CommercialPage extends StatefulWidget {
   const CommercialPage({super.key});
 
@@ -19,7 +21,7 @@ class _CommercialPageState extends State<CommercialPage> {
       "title": "ROSA Address Tower",
       "location": "Commercial",
       "image":
-          "https://growupagro.tech/storage/uploads/property/packages/68d9858ca4b25.jpeg",
+          "${ApiConstants.imgBaseUrl}/storage/uploads/property/packages/68d9858ca4b25.jpeg",
       "beds": "15",
       "baths": "10",
       "size": "12000 sqft",
@@ -28,7 +30,7 @@ class _CommercialPageState extends State<CommercialPage> {
       "title": "ROSA Business Tower",
       "location": "Commercial",
       "image":
-          "https://growupagro.tech/storage/uploads/property/packages/68d98578b266c.jpeg",
+          "${ApiConstants.imgBaseUrl}/storage/uploads/property/packages/68d98578b266c.jpeg",
       "beds": "10",
       "baths": "6",
       "size": "8000 sqft",
@@ -37,7 +39,7 @@ class _CommercialPageState extends State<CommercialPage> {
       "title": "ROSA Hi-Tech City",
       "location": "Commercial",
       "image":
-          "https://growupagro.tech/storage/uploads/property/packages/68d98551b5c76.jpeg",
+          "${ApiConstants.imgBaseUrl}/storage/uploads/property/packages/68d98551b5c76.jpeg",
       "beds": "8",
       "baths": "4",
       "size": "5000 sqft",

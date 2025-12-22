@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import '../models/all_properties.model.dart';
+import '../utils/api_constants.dart';
 
 class PropertiesCarouselSection extends StatefulWidget {
   final List<PropertyPackage> propertyPackages;
@@ -45,7 +46,7 @@ class _PropertiesCarouselSectionState extends State<PropertiesCarouselSection> {
           ),
           itemBuilder: (context, index, realIdx) {
             final package = propertyPackages[index];
-            final imageUrl = "https://growupagro.tech${package.imageUrl}";
+            final imageUrl = "${ApiConstants.imgBaseUrl}${package.imageUrl}";
 
             return Padding(
               padding: const EdgeInsets.only(left: 8, right: 8, bottom: 8),

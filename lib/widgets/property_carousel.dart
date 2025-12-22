@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 import '../models/all_properties.model.dart';
+import '../utils/api_constants.dart';
 
 class PropertyCarousel extends StatefulWidget {
   const PropertyCarousel({
@@ -58,7 +59,7 @@ class _PropertyCarouselState extends State<PropertyCarousel> {
                   return Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 6.0),
                     child: _PropertyCard(
-                      imageUrl: "https://growupagro.tech${pkg.imageUrl}",
+                      imageUrl: "${ApiConstants.imgBaseUrl}${pkg.imageUrl}",
                       title: "${pkg.propertyName}\n${pkg.packageName}",
                       onSeeDetails: () {
                         // TODO: navigate to details

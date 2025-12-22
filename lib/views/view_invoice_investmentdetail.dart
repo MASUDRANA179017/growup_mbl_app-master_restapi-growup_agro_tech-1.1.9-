@@ -6,7 +6,7 @@
 // import 'package:flutter/material.dart';
 //
 // Future<void> _downloadInvoiceToDownloads(BuildContext context, String invoiceNo) async {
-//   final url = 'https://growupagro.tech/storage/invoices/invoice_$invoiceNo.pdf';
+//   final url = '${ApiConstants.imgBaseUrl}/storage/invoices/invoice_$invoiceNo.pdf';
 //   final dio = Dio();
 //
 //   try {

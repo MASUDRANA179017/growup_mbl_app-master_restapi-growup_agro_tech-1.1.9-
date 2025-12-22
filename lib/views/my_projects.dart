@@ -279,7 +279,7 @@ class _MyProjectsPageState extends State<MyProjectsPage> {
                 projectName: project.projectName ?? 'N/A',
                 businessType: project.businessTypeName ?? 'N/A',
                 imageUrl: project.image != null
-                    ? 'https://growupagro.tech${project.image}'
+                    ? '${ApiConstants.imgBaseUrl}${project.image}'
                     : null,
                 projectDuration: project.projectDurationViewer ?? 'N/A',
                 startDate: formatDate(project.project_start_date),

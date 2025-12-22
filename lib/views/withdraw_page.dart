@@ -117,7 +117,7 @@ class _WithdrawPageState extends State<WithdrawPage> {
     final url = Uri.parse(ApiConstants.investorProfile(investorCode));
 
     // final url = Uri.parse(
-    //     'https://growupagro.tech/api/investor/profile?investor_code=$investorCode');
+    //     '${ApiConstants.imgBaseUrl}/api/investor/profile?investor_code=$investorCode');
 
     try {
       final response = await http.get(
@@ -148,7 +148,7 @@ class _WithdrawPageState extends State<WithdrawPage> {
     final investorCode = prefs.getString('investor_code') ?? '';
 
     // final url = Uri.parse(
-    //     'https://growupagro.tech/api/investor/profile?investor_code=$investorCode'
+    //     '${ApiConstants.imgBaseUrl}/api/investor/profile?investor_code=$investorCode'
     // );
 
     final url = Uri.parse(ApiConstants.investorProfile(investorCode));
@@ -794,9 +794,9 @@ class _WithdrawPageState extends State<WithdrawPage> {
                           : InvoiceActionButtons(
                         invoiceNo: item.invoiceNo!,
                         downloadUrl:
-                        'https://growupagro.tech/api/invoice/pdf/${item.invoiceNo!}',
+                        '${ApiConstants.imgBaseUrl}/api/invoice/pdf/${item.invoiceNo!}',
                         viewUrl:
-                        'https://growupagro.tech/api/invoice/pdf/${item.invoiceNo!}',
+                        '${ApiConstants.imgBaseUrl}/api/invoice/pdf/${item.invoiceNo!}',
                         status: item.status,
                       ),
 

@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 
 class ApiConstants {
   // Base URLs for different environments
-  //static const String devBaseUrl = "https://growupagro.tech/api";
+  //static const String devBaseUrl = "${ApiConstants.imgBaseUrl}/api";
   static const String devBaseUrl = "https://growupagro.tech/api";
   // static const String prodBaseUrl = "https://admin-growup.onebitstore.site/api";
   static const String prodBaseUrl = "https://growupagro.tech/api";
@@ -167,7 +167,7 @@ class ApiConstants {
       "$baseUrl/capital-returns?investor_code=$investorCode";
 
   static String capitalReturnInvoiceDownload(String invoiceNo) =>
-      "https://growupagro.tech/dashboard/invoice/pdf/$invoiceNo";
+      "${ApiConstants.imgBaseUrl}/dashboard/invoice/pdf/$invoiceNo";
 
   // Invoice endpoints
   // static String invoicePdf(String invoiceNo) => "$baseUrl/invoice/pdf/$invoiceNo";
@@ -184,7 +184,7 @@ class ApiConstants {
   static String roiListinvoice(String investorCode) => "$baseUrl/rois?investor_code=$investorCode";
 
 // ROI invoice download
-  static String roiInvoiceDownload(String invoiceNo) => "https://growupagro.tech/dashboard/invoice/pdf/$invoiceNo";
+  static String roiInvoiceDownload(String invoiceNo) => "${ApiConstants.imgBaseUrl}/dashboard/invoice/pdf/$invoiceNo";
 
 // Pop-up projects for investor
   static String investorPopUpProjects(String investorCode) =>

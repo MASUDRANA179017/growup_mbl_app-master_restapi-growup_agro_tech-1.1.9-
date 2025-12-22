@@ -5,6 +5,8 @@ import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
 import 'package:http/http.dart' as http;
 
+import '../utils/api_constants.dart';
+
 class GlobalInsightsSlider extends StatefulWidget {
   const GlobalInsightsSlider({Key? key}) : super(key: key);
 
@@ -24,7 +26,7 @@ class _GlobalInsightsSliderState extends State<GlobalInsightsSlider> {
   }
 
   Future<void> fetchGlobalInsights() async {
-    const url = 'https://growupagro.tech/api/advertisements'; // same API endpoint
+    final url = '${ApiConstants.imgBaseUrl}/api/advertisements'; // same API endpoint
     try {
       final response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {
@@ -64,7 +66,7 @@ class _GlobalInsightsSliderState extends State<GlobalInsightsSlider> {
             final mediaType = item['media_type'];
             final mediaPath = item['media_path'].toString().startsWith('http')
                 ? item['media_path']
-                : "https://growupagro.tech/storage/${item['media_path']}";
+                : "${ApiConstants.imgBaseUrl}/storage/${item['media_path']}";
 
             if (mediaType == 'video') {
               return GestureDetector(

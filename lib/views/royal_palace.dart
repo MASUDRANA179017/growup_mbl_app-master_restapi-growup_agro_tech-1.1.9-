@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:growup_agro/widgets/custom_button.dart';
 
+import '../utils/api_constants.dart';
+
 class PalaceCityPage extends StatefulWidget {
   const PalaceCityPage({super.key});
 
@@ -19,7 +21,7 @@ class _PalaceCityPageState extends State<PalaceCityPage> {
       "title": "The Royal Palace",
       "location": "The Royal Eco City",
       "image":
-          "https://growupagro.tech/storage/uploads/property/packages/68d986af8413e.jpeg",
+          "${ApiConstants.imgBaseUrl}/storage/uploads/property/packages/68d986af8413e.jpeg",
       "beds": "15",
       "baths": "10",
       "size": "12000 sqft",

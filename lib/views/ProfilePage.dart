@@ -140,20 +140,20 @@ class _InvestorProfilePageState extends State<InvestorProfilePage> {
           // Investor Info
           final investor = data['investor'] ?? {};
           profileImageUrl = investor['image'] != null
-              ? 'https://growupagro.tech/storage/${investor['image']}'
+              ? '${ApiConstants.imgBaseUrl}/storage/${investor['image']}'
               : null;
 
           // ✅ Correct NID keys
           nidFrontUrl =
           (investor['nid_front'] != null &&
               investor['nid_front'].toString().isNotEmpty)
-              ? 'https://growupagro.tech/storage/${investor['nid_front']}'
+              ? '${ApiConstants.imgBaseUrl}/storage/${investor['nid_front']}'
               : null;
 
           nidBackUrl =
           (investor['nid_back'] != null &&
               investor['nid_back'].toString().isNotEmpty)
-              ? 'https://growupagro.tech/storage/${investor['nid_back']}'
+              ? '${ApiConstants.imgBaseUrl}/storage/${investor['nid_back']}'
               : null;
 
           // Debug prints

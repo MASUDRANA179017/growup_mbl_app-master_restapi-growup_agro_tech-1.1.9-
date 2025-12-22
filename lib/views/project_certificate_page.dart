@@ -11,6 +11,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:http/http.dart' as http;
 import 'package:url_launcher/url_launcher.dart';
+import '../utils/api_constants.dart';
 import '../utils/invoice_utils.dart';
 import '../views/web_view_page.dart';
 import '../widgets/invoice_action_buttons.dart';
@@ -48,7 +49,7 @@ class _ProjectCertificatesPageState extends State<ProjectCertificatesPage> {
     }
 
     final url = Uri.parse(
-        "https://growupagro.tech/api/investor/project-certificates?investor_code=$investorCode");
+        "${ApiConstants.imgBaseUrl}/api/investor/project-certificates?investor_code=$investorCode");
 
     final response = await http.get(
       url,

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:growup_agro/widgets/custom_button.dart';
 
+import '../utils/api_constants.dart';
+
 class HealthCityPage extends StatefulWidget {
   const HealthCityPage({super.key});
 
@@ -19,7 +21,7 @@ class _HealthCityPageState extends State<HealthCityPage> {
       "title": "ROSA Health Tower",
       "location": "ROSA Health City",
       "image":
-          "https://growupagro.tech/storage/uploads/property/packages/68d98670d9d1f.jpeg",
+          "${ApiConstants.imgBaseUrl}/storage/uploads/property/packages/68d98670d9d1f.jpeg",
       "beds": "12",
       "baths": "8",
       "size": "9000 sqft",
@@ -28,7 +30,7 @@ class _HealthCityPageState extends State<HealthCityPage> {
       "title": "ROSA Hospital Complex",
       "location": "ROSA Health City",
       "image":
-          "https://growupagro.tech/storage/uploads/property/packages/68d98688f1570.jpeg",
+          "${ApiConstants.imgBaseUrl}/storage/uploads/property/packages/68d98688f1570.jpeg",
       "beds": "15",
       "baths": "10",
       "size": "12000 sqft",

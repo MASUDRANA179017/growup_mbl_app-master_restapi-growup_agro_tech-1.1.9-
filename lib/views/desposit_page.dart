@@ -1114,9 +1114,9 @@ class _DepositPageState extends State<DepositPage> {
                           child: InvoiceActionButtons(
                               invoiceNo: item.invoiceNo!,
                               downloadUrl:
-                                  'https://growupagro.tech/api/invoice/pdf/${item.invoiceNo!}',
+                                  '${ApiConstants.imgBaseUrl}/api/invoice/pdf/${item.invoiceNo!}',
                               viewUrl:
-                                  'https://growupagro.tech/api/invoice/pdf/${item.invoiceNo!}',
+                                  '${ApiConstants.imgBaseUrl}/api/invoice/pdf/${item.invoiceNo!}',
                               status: item.status,
                             ),
                         ),

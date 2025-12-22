@@ -13,7 +13,7 @@
 //   late final WebViewController _controller;
 //   bool _isLoading = true;
 //
-//   static const String _initialUrl = 'https://growupagro.tech/crretificates';
+//   static const String _initialUrl = '${ApiConstants.imgBaseUrl}/crretificates';
 //
 //   @override
 //   void initState() {
@@ -88,7 +88,7 @@ class CertificatePage extends StatefulWidget {
 }
 
 class _CertificatePageState extends State<CertificatePage> {
-  // static const String _url = 'https://growupagro.tech/crretificates';
+  // static const String _url = '${ApiConstants.imgBaseUrl}/crretificates';
   final String _url = ApiConstants.crretificatesUrl;
 
   @override

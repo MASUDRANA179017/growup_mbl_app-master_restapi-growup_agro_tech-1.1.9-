@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:growup_agro/widgets/custom_button.dart';
 
+import '../utils/api_constants.dart';
+
 class ResidencialCityPage extends StatefulWidget {
   const ResidencialCityPage({super.key});
 
@@ -19,7 +21,7 @@ class _ResidencialCityPageState extends State<ResidencialCityPage> {
       "title": "ROSA RS Tower",
       "location": "Residential",
       "image":
-          "https://growupagro.tech/storage/uploads/property/packages/68d985654d8aa.jpeg",
+          "${ApiConstants.imgBaseUrl}/storage/uploads/property/packages/68d985654d8aa.jpeg",
       "beds": "4",
       "baths": "3",
       "size": "2200 sqft",
@@ -28,7 +30,7 @@ class _ResidencialCityPageState extends State<ResidencialCityPage> {
       "title": "ROSA Zarina Tower",
       "location": "Residential",
       "image":
-          "https://growupagro.tech/storage/uploads/property/packages/68d98578b266c.jpeg",
+          "${ApiConstants.imgBaseUrl}/storage/uploads/property/packages/68d98578b266c.jpeg",
       "beds": "3",
       "baths": "2",
       "size": "1400 sqft",
@@ -37,7 +39,7 @@ class _ResidencialCityPageState extends State<ResidencialCityPage> {
       "title": "ROSA Haque Manzil",
       "location": "Residential",
       "image":
-          "https://growupagro.tech/storage/uploads/property/packages/68d98551b5c76.jpeg",
+          "${ApiConstants.imgBaseUrl}/storage/uploads/property/packages/68d98551b5c76.jpeg",
       "beds": "2",
       "baths": "1",
       "size": "900 sqft",

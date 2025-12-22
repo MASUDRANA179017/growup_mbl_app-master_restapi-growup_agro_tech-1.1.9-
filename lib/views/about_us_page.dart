@@ -10,7 +10,7 @@ class AboutUsPage extends StatefulWidget {
 }
 
 class _AboutUsPageState extends State<AboutUsPage> {
-  // static const String _url = 'https://growupagro.tech/about-us';
+  // static const String _url = '${ApiConstants.imgBaseUrl}/about-us';
   final String _url = ApiConstants.aboutUsUrl;
 
 

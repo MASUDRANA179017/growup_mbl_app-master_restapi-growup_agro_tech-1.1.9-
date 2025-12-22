@@ -62,7 +62,7 @@
 //     final prefs = await SharedPreferences.getInstance();
 //     final token = prefs.getString('auth_token') ?? '';
 //
-//     final url = Uri.parse("https://growupagro.tech/api/all-projects");
+//     final url = Uri.parse("${ApiConstants.imgBaseUrl}/api/all-projects");
 //     final response = await http.get(url, headers: {
 //       'Authorization': 'Bearer $token',
 //       'Content-Type': 'application/json',

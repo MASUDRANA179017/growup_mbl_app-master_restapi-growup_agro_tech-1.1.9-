@@ -97,7 +97,7 @@ class InvestNowButton extends StatelessWidget {
       builder: (_) => const Center(child: CircularProgressIndicator()),
     );
 
-    // final url = Uri.parse('https://growupagro.tech/api/investor/invest-now');
+    // final url = Uri.parse('${ApiConstants.imgBaseUrl}/api/investor/invest-now');
     final url = Uri.parse(ApiConstants.investNow()); // ✅ use constant
     final response = await http.post(
       url,

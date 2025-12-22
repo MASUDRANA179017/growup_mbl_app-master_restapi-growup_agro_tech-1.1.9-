@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:growup_agro/widgets/custom_button.dart';
 
+import '../utils/api_constants.dart';
+
 class RosahitechCityPage extends StatefulWidget {
   const RosahitechCityPage({super.key});
 
@@ -19,7 +21,7 @@ class _RosahitechCityPageState extends State<RosahitechCityPage> {
       "title": "ROSA Residence Tower A",
       "location": "ROSA Hi-Tech City",
       "image":
-          "https://growupagro.tech/storage/uploads/property/packages/68d98670d9d1f.jpeg",
+          "${ApiConstants.imgBaseUrl}/storage/uploads/property/packages/68d98670d9d1f.jpeg",
       "beds": "15",
       "baths": "10",
       "size": "12000 sqft",
@@ -28,7 +30,7 @@ class _RosahitechCityPageState extends State<RosahitechCityPage> {
       "title": "ROSA Residence Tower B",
       "location": "ROSA Hi-Tech City",
       "image":
-          "https://growupagro.tech/storage/uploads/property/packages/68d98688f1570.jpeg",
+          "${ApiConstants.imgBaseUrl}/storage/uploads/property/packages/68d98688f1570.jpeg",
       "beds": "10",
       "baths": "6",
       "size": "8000 sqft",

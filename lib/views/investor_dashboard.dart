@@ -133,7 +133,7 @@ class _DashboardInvestorState extends State<DashboardInvestor> {
     final url = Uri.parse(ApiConstants.sliderImages());
 
     // final url = Uri.parse(
-    //   'https://growupagro.tech/api/investor/sliders',
+    //   '${ApiConstants.imgBaseUrl}/api/investor/sliders',
     // );
 
     try {
@@ -159,7 +159,7 @@ class _DashboardInvestorState extends State<DashboardInvestor> {
               if (image.startsWith('http')) {
                 return image;
               } else {
-                return 'https://growupagro.tech$image';
+                return '${ApiConstants.imgBaseUrl}$image';
               }
             }),
           );

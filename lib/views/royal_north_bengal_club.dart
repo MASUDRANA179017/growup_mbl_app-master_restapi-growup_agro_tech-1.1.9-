@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:growup_agro/widgets/custom_button.dart';
 
+import '../utils/api_constants.dart';
+
 class NorthCityPage extends StatefulWidget {
   const NorthCityPage({super.key});
 
@@ -19,7 +21,7 @@ class _NorthCityPageState extends State<NorthCityPage> {
       "title": "The Royal North-Bengal Club",
       "location": "The Royal Eco City",
       "image":
-          "https://growupagro.tech/storage/uploads/property/packages/68d986bea84f9.jpeg",
+          "${ApiConstants.imgBaseUrl}/storage/uploads/property/packages/68d986bea84f9.jpeg",
       "beds": "8",
       "baths": "4",
       "size": "5000 sqft",

@@ -5,6 +5,8 @@ import 'package:video_player/video_player.dart';
 import 'package:chewie/chewie.dart';
 import 'package:http/http.dart' as http;
 
+import '../utils/api_constants.dart';
+
 class AdvertisementSlider extends StatefulWidget {
   const AdvertisementSlider({Key? key}) : super(key: key);
 
@@ -24,7 +26,7 @@ class _AdvertisementSliderState extends State<AdvertisementSlider> {
   }
 
   Future<void> fetchAdvertisements() async {
-    const url = 'https://growupagro.tech/api/advertisements';
+    final url = '${ApiConstants.imgBaseUrl}/api/advertisements';
     try {
       final response = await http.get(Uri.parse(url));
       if (response.statusCode == 200) {

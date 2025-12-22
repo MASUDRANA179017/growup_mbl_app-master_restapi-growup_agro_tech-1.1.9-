@@ -6,6 +6,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../utils/api_constants.dart';
+
 class EditProfilePage extends StatefulWidget {
   const EditProfilePage({Key? key}) : super(key: key);
 
@@ -52,7 +54,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
     investorCode = prefs.getString('investor_code') ?? '';
 
     final response = await http.get(
-      Uri.parse('https://growupagro.tech/api/investor/profile?investor_code=$investorCode'),
+      Uri.parse('${ApiConstants.imgBaseUrl}/api/investor/profile?investor_code=$investorCode'),
       headers: {
         'Authorization': 'Bearer $token',
         'Accept': 'application/json',
@@ -67,7 +69,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
         emailController.text = investor['email'] ?? '';
         phoneController.text = investor['phone'] ?? '';
         profileImageUrl = investor['image'] != null
-            ? 'https://growupagro.tech/storage/${investor['image']}'
+            ? '${ApiConstants.imgBaseUrl}/storage/${investor['image']}'
             : null;
       });
     } else {
@@ -96,7 +98,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
 
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('auth_token') ?? '';
-    final uri = Uri.parse('https://growupagro.tech/api/investor/profile/investor-info/update');
+    final uri = Uri.parse('${ApiConstants.imgBaseUrl}/api/investor/profile/investor-info/update');
 
     var request = http.MultipartRequest('POST', uri)
       ..headers['Authorization'] = 'Bearer $token'
@@ -146,7 +148,7 @@ class _EditProfilePageState extends State<EditProfilePage> {
     setState(() => _changingPassword = true);
     final id = int.tryParse(investorIdString);
 
-    final url = Uri.parse('https://growupagro.tech/api/change-password');
+    final url = Uri.parse('${ApiConstants.imgBaseUrl}/api/change-password');
     final response = await http.post(
       url,
       headers: {

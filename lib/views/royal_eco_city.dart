@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:growup_agro/widgets/custom_button.dart';
 
+import '../utils/api_constants.dart';
+
 class RoyalEcoCityPage extends StatefulWidget {
   const RoyalEcoCityPage({super.key});
 
@@ -19,7 +21,7 @@ class _RoyalEcoCityPageState extends State<RoyalEcoCityPage> {
       "title": "The Royal Palace",
       "location": "The Royal Eco City",
       "image":
-          "https://growupagro.tech/storage/uploads/property/packages/68d986af8413e.jpeg",
+          "${ApiConstants.imgBaseUrl}/storage/uploads/property/packages/68d986af8413e.jpeg",
       "beds": "15",
       "baths": "10",
       "size": "12000 sqft",
@@ -28,7 +30,7 @@ class _RoyalEcoCityPageState extends State<RoyalEcoCityPage> {
       "title": "The Royal Agri-Eco Tourism",
       "location": "The Royal Eco City",
       "image":
-          "https://growupagro.tech/storage/uploads/property/packages/68d986af8413e.jpeg",
+          "${ApiConstants.imgBaseUrl}/storage/uploads/property/packages/68d986af8413e.jpeg",
       "beds": "10",
       "baths": "6",
       "size": "8000 sqft",
@@ -37,7 +39,7 @@ class _RoyalEcoCityPageState extends State<RoyalEcoCityPage> {
       "title": "The Royal North-Bengal Club",
       "location": "The Royal Eco City",
       "image":
-          "https://growupagro.tech/storage/uploads/property/packages/68d986af8413e.jpeg",
+          "${ApiConstants.imgBaseUrl}/storage/uploads/property/packages/68d986af8413e.jpeg",
       "beds": "8",
       "baths": "4",
       "size": "5000 sqft",
