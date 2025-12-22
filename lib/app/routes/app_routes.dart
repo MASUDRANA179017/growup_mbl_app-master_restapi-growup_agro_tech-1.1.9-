@@ -1,0 +1,76 @@
+part of 'app_pages.dart';
+// DO NOT EDIT. This is code generated via package:get_cli/get_cli.dart
+
+abstract class Routes {
+  Routes._();
+  static const HOME = _Paths.HOME;
+  static const AUTH = _Paths.AUTH;
+  static const DASHBOARD = _Paths.DASHBOARD;
+  static const ONBOARDING = _Paths.ONBOARDING;
+  static const ABOUT_US = _Paths.ABOUT_US;
+  static const ALL_PRODUCTS = _Paths.ALL_PRODUCTS;
+  static const ALL_PROJECTS = _Paths.ALL_PROJECTS;
+  static const ALL_PROPERTIES = _Paths.ALL_PROPERTIES;
+  static const SPLASH_SCREEN = _Paths.SPLASH_SCREEN;
+  static const INTRO_PAGE = _Paths.INTRO_PAGE;
+  static const MY_REGISTER = _Paths.MY_REGISTER;
+  static const MY_LOGIN = _Paths.MY_LOGIN;
+  static const MAIN_SCREEN = _Paths.MAIN_SCREEN;
+  static const INVESTMENT_HISTORY = _Paths.INVESTMENT_HISTORY;
+  static const WALLET_HISTORY = _Paths.WALLET_HISTORY;
+  static const DEPOSIT = _Paths.DEPOSIT;
+  static const WITHDRAW = _Paths.WITHDRAW;
+  static const EDIT_PROFILE = _Paths.EDIT_PROFILE;
+  static const INVESTOR_PROFILE = _Paths.INVESTOR_PROFILE;
+  static const LONG_PROJECTS = _Paths.LONG_PROJECTS;
+  static const SHORT_PROJECTS = _Paths.SHORT_PROJECTS;
+  static const LIVE_PROJECTS = _Paths.LIVE_PROJECTS;
+  static const MY_ORDERS = _Paths.MY_ORDERS;
+  static const CERTIFICATE = _Paths.CERTIFICATE;
+  static const NEWS = _Paths.NEWS;
+  static const BLOGS = _Paths.BLOGS;
+  static const INVOICE_GROWUP = _Paths.INVOICE_GROWUP;
+  static const INVOICE_RECHARGE = _Paths.INVOICE_RECHARGE;
+  static const INVOICE_ROI = _Paths.INVOICE_ROI;
+  static const CAPITAL_RETURN = _Paths.CAPITAL_RETURN;
+  static const TAX_CERTIFICATE = _Paths.TAX_CERTIFICATE;
+  static const PROJECT_CERTIFICATE = _Paths.PROJECT_CERTIFICATE;
+  static const MY_PROJECTS = _Paths.MY_PROJECTS;
+}
+
+abstract class _Paths {
+  _Paths._();
+  static const HOME = '/home';
+  static const AUTH = '/auth';
+  static const DASHBOARD = '/dashboard';
+  static const ONBOARDING = '/onboarding';
+  static const ABOUT_US = '/about-us';
+  static const ALL_PRODUCTS = '/all-products';
+  static const ALL_PROJECTS = '/all-projects';
+  static const ALL_PROPERTIES = '/all-properties';
+  static const SPLASH_SCREEN = '/splash-screen';
+  static const INTRO_PAGE = '/intro-page';
+  static const MY_REGISTER = '/my-register';
+  static const MY_LOGIN = '/my-login';
+  static const MAIN_SCREEN = '/main-screen';
+  static const INVESTMENT_HISTORY = '/investment-history';
+  static const WALLET_HISTORY = '/wallet-history';
+  static const DEPOSIT = '/deposit';
+  static const WITHDRAW = '/withdraw';
+  static const EDIT_PROFILE = '/edit-profile';
+  static const INVESTOR_PROFILE = '/investor-profile';
+  static const LONG_PROJECTS = '/long-projects';
+  static const SHORT_PROJECTS = '/short-projects';
+  static const LIVE_PROJECTS = '/live-projects';
+  static const MY_ORDERS = '/my-orders';
+  static const CERTIFICATE = '/certificate';
+  static const NEWS = '/news';
+  static const BLOGS = '/blogs';
+  static const INVOICE_GROWUP = '/invoice-growup';
+  static const INVOICE_RECHARGE = '/invoice-recharge';
+  static const INVOICE_ROI = '/invoice-roi';
+  static const CAPITAL_RETURN = '/capital-return';
+  static const TAX_CERTIFICATE = '/tax-certificate';
+  static const PROJECT_CERTIFICATE = '/project-certificate';
+  static const MY_PROJECTS = '/my-projects';
+}

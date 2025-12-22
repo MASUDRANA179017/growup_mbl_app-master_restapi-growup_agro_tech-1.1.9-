@@ -3,6 +3,9 @@ import 'package:http/http.dart' as http;
 class ApiConstants {
   // Base URLs for different environments
   //static const String devBaseUrl = "${ApiConstants.imgBaseUrl}/api";
+  static String token = '';
+  static Map<String, String> headers = {'Accept': "application/json"};
+
   static const String devBaseUrl = "https://growupagro.tech/api";
   // static const String prodBaseUrl = "https://admin-growup.onebitstore.site/api";
   static const String prodBaseUrl = "https://growupagro.tech/api";
