@@ -7,13 +7,14 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:growup_agro/app/routes/app_pages.dart';
 
 import 'package:growup_agro/main.dart';
 
 void main() {
   testWidgets('Counter increments smoke test', (WidgetTester tester) async {
     // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+    await tester.pumpWidget(const MyApp(route: Routes.SPLASH_SCREEN,));
 
     // Verify that our counter starts at 0.
     expect(find.text('0'), findsOneWidget);
