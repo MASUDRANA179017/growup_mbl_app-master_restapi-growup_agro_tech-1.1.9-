@@ -15,6 +15,7 @@ class CustomButton extends StatelessWidget {
   final FontWeight fontWeight;
   final bool useExtraRoundedCorners;
   final bool isRound;
+  final Size? buttonSize;
 
   const CustomButton({
     super.key,
@@ -32,6 +33,7 @@ class CustomButton extends StatelessWidget {
     this.fontWeight = FontWeight.w500,
     this.useExtraRoundedCorners = false,
     this.isRound = false,
+    this.buttonSize
   });
 
   @override
@@ -45,6 +47,7 @@ class CustomButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: isDisabled ? null : onPressed,
         style: ElevatedButton.styleFrom(
+          fixedSize: buttonSize,
           backgroundColor: isDisabled ? Colors.grey[300] : backgroundColor,
           foregroundColor: textColor,
           shape: RoundedRectangleBorder(

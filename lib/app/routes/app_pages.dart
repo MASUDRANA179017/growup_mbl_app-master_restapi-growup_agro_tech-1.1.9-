@@ -6,6 +6,8 @@ import '../modules/about_us/bindings/about_us_binding.dart';
 import '../modules/about_us/views/about_us_view.dart';
 import '../modules/all_products/bindings/all_products_binding.dart';
 import '../modules/all_products/views/all_products_view.dart';
+import '../modules/all_project_details/bindings/all_project_details_binding.dart';
+import '../modules/all_project_details/views/all_project_details_view.dart';
 import '../modules/all_projects/bindings/all_projects_binding.dart';
 import '../modules/all_projects/views/all_projects_view.dart';
 import '../modules/all_properties/bindings/all_properties_binding.dart';
@@ -54,6 +56,8 @@ import '../modules/onboarding/bindings/onboarding_binding.dart';
 import '../modules/onboarding/views/onboarding_view.dart';
 import '../modules/project_certificate/bindings/project_certificate_binding.dart';
 import '../modules/project_certificate/views/project_certificate_view.dart';
+import '../modules/propertie_details/bindings/propertie_details_binding.dart';
+import '../modules/propertie_details/views/propertie_details_view.dart';
 import '../modules/short_projects/bindings/short_projects_binding.dart';
 import '../modules/short_projects/views/short_projects_view.dart';
 import '../modules/splash_screen/bindings/splash_screen_binding.dart';
@@ -222,6 +226,16 @@ class AppPages {
       name: _Paths.MY_PROJECTS,
       page: () => const MyProjectsView(),
       binding: MyProjectsBinding(),
+    ),
+    GetPage(
+      name: _Paths.ALL_PROJECT_DETAILS,
+      page: () => const AllProjectDetailsView(),
+      binding: AllProjectDetailsBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROPERTIE_DETAILS,
+      page: () => const PropertiesDetailsView(),
+      binding: PropertieDetailsBinding(),
     ),
   ];
 }

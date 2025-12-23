@@ -1,422 +1,291 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'colors.dart';
 
-Widget text_24_700(
-  String? value, {
-  Color color = textColorBlack,
-  TextAlign textAlign = TextAlign.end,
+/// Base getFont function
+TextStyle getFont({
+  double? fontSize,
+  FontWeight? fontWeight,
+  Color? color,
+  FontStyle? fontStyle,
+  TextDecoration? decoration,
+  TextDecorationStyle? decorationStyle,
+  double? letterSpacing,
+  double? wordSpacing,
+  TextBaseline? textBaseline,
+  Locale? locale,
+  Paint? foreground,
+  Paint? background,
+  List<Shadow>? shadows,
+  double? height,
 }) {
-  return Text(
-    "$value",
-    style: GoogleFonts.poppins(
-      color: color,
-      fontWeight: FontWeight.w700,
-      fontSize: 24,
-    ),
+  return TextStyle(
+    fontFamily: "FontMain",
+    fontSize: fontSize,
+    fontWeight: fontWeight,
+    color: color,
+    fontStyle: fontStyle,
+    decoration: decoration,
+    decorationStyle: decorationStyle,
+    letterSpacing: letterSpacing,
+    wordSpacing: wordSpacing,
+    textBaseline: textBaseline,
+    locale: locale,
+    foreground: foreground,
+    background: background,
+    shadows: shadows,
+    height: height,
   );
+  // return GoogleFonts.inter(
+  //   fontSize: fontSize,
+  //   fontWeight: fontWeight,
+  //   color: color,
+  //   fontStyle: fontStyle,
+  //   decoration: decoration,
+  //   decorationStyle: decorationStyle,
+  //   letterSpacing: letterSpacing,
+  //   wordSpacing: wordSpacing,
+  //   textBaseline: textBaseline,
+  //   locale: locale,
+  //   foreground: foreground,
+  //   background: background,
+  //   shadows: shadows,
+  //   height: height,
+  // );
 }
 
-Widget text_24_600(
-    String? value, {
-      Color color = textColorBlack,
-      TextAlign textAlign = TextAlign.end,
-    }) {
-  return Text(
-    "$value",
-    style: GoogleFonts.poppins(
-      color: color,
-      fontWeight: FontWeight.w600,
-      fontSize: 24,
-    ),
-  );
-}
+/// =================== TEXT WIDGETS ===================
 
-Widget text_24_400(
-    String? value, {
-      Color color = textColorBlack,
-      TextAlign textAlign = TextAlign.end,
-    }) {
+Widget text_24_700(String? value, {Color color = textColorBlack, TextAlign textAlign = TextAlign.end}) {
   return Text(
-    "$value",
-    style: GoogleFonts.poppins(
-      color: color,
-      fontWeight: FontWeight.w400,
-      fontSize: 24,
-    ),
-  );
-}
-
-Widget text_24_500(
-  String? value, {
-  Color color = textColorBlack,
-  TextAlign textAlign = TextAlign.end,
-}) {
-  return Text(
-    "$value",
-    style: GoogleFonts.poppins(
-      color: color,
-      fontWeight: FontWeight.w500,
-      fontSize: 24,
-    ),
-  );
-}
-
-Widget text_20_300(
-  String? value, {
-  Color color = textColorBlack,
-  TextAlign textAlign = TextAlign.start,
-      int? maxLines,
-      TextOverflow? overflow
-}) {
-  return Text(
-    "$value",
-    maxLines: maxLines,
-    overflow: overflow,
-    style: GoogleFonts.poppins(
-      color: color,
-      fontWeight: FontWeight.w300,
-      fontSize: 20,
-    ),
-  );
-}
-
-Widget text_20_400(
-    String? value, {
-      Color color = textColorBlack,
-      TextAlign textAlign = TextAlign.start,
-      int? maxLines,
-      TextOverflow? overflow
-    }) {
-  return Text(
-    "$value",
-    maxLines: maxLines,
-    overflow: overflow,
-    style: GoogleFonts.poppins(
-      color: color,
-      fontWeight: FontWeight.w400,
-      fontSize: 20,
-    ),
-  );
-}
-
-Widget text_20_600(
-  String? value, {
-  Color color = textColorBlack,
-  TextAlign textAlign = TextAlign.start,
-      TextOverflow  textOverflow = TextOverflow.visible,
-      int? maxLine,
-}) {
-  return Text(
-    "$value",
-    style: GoogleFonts.poppins(
-      color: color,
-      fontWeight: FontWeight.w600,
-      fontSize: 20,
-    ),
-    textAlign: textAlign,
-    overflow: textOverflow,
-    maxLines: maxLine,
-  );
-}
-
-Widget text_16_500(
-  String? value, {
-  Color color = textColorBlack,
-  TextAlign textAlign = TextAlign.justify,
-  int? maxLine,
-      TextOverflow textOverflow = TextOverflow.visible,
-}) {
-  return Text(
-    "$value",
-    style: GoogleFonts.poppins(
-      color: color,
-      fontWeight: FontWeight.w500,
-      fontSize: 16,
-    ),
-    maxLines: maxLine,
-    overflow: textOverflow,
+    value ?? '',
+    style: getFont(fontSize: 24, fontWeight: FontWeight.w700, color: color),
     textAlign: textAlign,
   );
 }
 
-Widget text_16_700(
-    String? value, {
-    Color color = textColorBlack,
-    TextAlign textAlign = TextAlign.end,
-    int maxLine = 1,
-}) {
+Widget text_24_600(String? value, {Color color = textColorBlack, TextAlign textAlign = TextAlign.end}) {
   return Text(
-    "$value",
-    style: GoogleFonts.poppins(
-      color: color,
-      fontWeight: FontWeight.w700,
-      fontSize: 16,
-    ),
-    maxLines: maxLine,
-  );
-}
-
-Widget text_16_400(
-  String? value, {
-  Color color = textColorBlack,
-  TextStyle textStyle = const TextStyle(),
-  TextAlign textAlign = TextAlign.start,
-}) {
-  return Text(
-    "$value",
-    style: GoogleFonts.poppins(
-      color: color,
-      fontWeight: FontWeight.w400,
-      fontSize: 16,
-    ).merge(textStyle),
+    value ?? '',
+    style: getFont(fontSize: 24, fontWeight: FontWeight.w600, color: color),
     textAlign: textAlign,
   );
 }
 
-Widget text_16_600(String? value, {Color color = textColorBlack, int? maxline}) {
+Widget text_24_500(String? value, {Color color = textColorBlack, TextAlign textAlign = TextAlign.end}) {
   return Text(
-    "$value",
-    style: GoogleFonts.poppins(
-      color: color,
-      fontWeight: FontWeight.w600,
-      fontSize: 16,
-    ),
-    maxLines: maxline,
+    value ?? '',
+    style: getFont(fontSize: 24, fontWeight: FontWeight.w500, color: color),
+    textAlign: textAlign,
   );
 }
 
-Widget text_14_400(String? value, {Color color = textColorBlack, int? maxLine, textAlign = TextAlign.start}) {
+Widget text_24_400(String? value, {Color color = textColorBlack, TextAlign textAlign = TextAlign.end}) {
   return Text(
-    "$value",
-    style: GoogleFonts.poppins(
-      color: color,
-      fontWeight: FontWeight.w400,
-      fontSize: 14,
-    ),
+    value ?? '',
+    style: getFont(fontSize: 24, fontWeight: FontWeight.w400, color: color),
+    textAlign: textAlign,
+  );
+}
+
+Widget text_20_600(String? value, {Color color = textColorBlack, TextAlign textAlign = TextAlign.start, int? maxLine, TextOverflow? overflow}) {
+  return Text(
+    value ?? '',
+    style: getFont(fontSize: 20, fontWeight: FontWeight.w600, color: color),
+    textAlign: textAlign,
+    maxLines: maxLine,
+    overflow: overflow ?? (maxLine != null ? TextOverflow.ellipsis : null),
+  );
+}
+
+Widget text_20_400(String? value, {Color color = textColorBlack, TextAlign textAlign = TextAlign.start, int? maxLine, TextOverflow? overflow}) {
+  return Text(
+    value ?? '',
+    style: getFont(fontSize: 20, fontWeight: FontWeight.w400, color: color),
+    textAlign: textAlign,
+    maxLines: maxLine,
+    overflow: overflow ?? (maxLine != null ? TextOverflow.ellipsis : null),
+  );
+}
+
+Widget text_20_300(String? value, {Color color = textColorBlack, TextAlign textAlign = TextAlign.start, int? maxLine, TextOverflow? overflow}) {
+  return Text(
+    value ?? '',
+    style: getFont(fontSize: 20, fontWeight: FontWeight.w300, color: color),
+    textAlign: textAlign,
+    maxLines: maxLine,
+    overflow: overflow ?? (maxLine != null ? TextOverflow.ellipsis : null),
+  );
+}
+
+Widget text_18_700(String? value, {Color color = textColorBlack, TextAlign textAlign = TextAlign.start}) {
+  return Text(
+    value ?? '',
+    style: getFont(fontSize: 18, fontWeight: FontWeight.w700, color: color),
+    textAlign: textAlign,
+  );
+}
+
+Widget text_18_400(String? value, {Color color = textColorBlack, int? maxLine}) {
+  return Text(
+    value ?? '',
+    style: getFont(fontSize: 18, fontWeight: FontWeight.w400, color: color),
+    maxLines: maxLine,
+    overflow: maxLine != null ? TextOverflow.ellipsis : null,
+  );
+}
+
+Widget text_16_700(String? value, {Color color = textColorBlack, int maxLine = 1, TextAlign textAlign = TextAlign.end}) {
+  return Text(
+    value ?? '',
+    style: getFont(fontSize: 16, fontWeight: FontWeight.w700, color: color),
+    maxLines: maxLine,
+    textAlign: textAlign,
+  );
+}
+
+Widget text_16_600(String? value, {Color color = textColorBlack, int? maxLine, TextAlign textAlign = TextAlign.start, TextOverflow? overflow}) {
+  return Text(
+    value ?? '',
+    style: getFont(fontSize: 16, fontWeight: FontWeight.w600, color: color),
+    maxLines: maxLine,
+    overflow: overflow ?? (maxLine != null ? TextOverflow.ellipsis : null),
+    textAlign: textAlign,
+  );
+}
+
+Widget text_16_500(String? value, {Color color = textColorBlack, int? maxLine, TextOverflow? overflow, TextAlign textAlign = TextAlign.justify}) {
+  return Text(
+    value ?? '',
+    style: getFont(fontSize: 16, fontWeight: FontWeight.w500, color: color),
+    maxLines: maxLine,
+    overflow: overflow ?? (maxLine != null ? TextOverflow.ellipsis : null),
+    textAlign: textAlign,
+  );
+}
+
+Widget text_16_400(String? value, {Color color = textColorBlack, TextStyle textStyle = const TextStyle(), TextAlign textAlign = TextAlign.start}) {
+  return Text(
+    value ?? '',
+    style: getFont(fontSize: 16, fontWeight: FontWeight.w400, color: color).merge(textStyle),
+    textAlign: textAlign,
+  );
+}
+
+Widget text_16_300(String? value, {Color color = textColorBlack, int? maxLine, TextDecoration? decoration}) {
+  return Text(
+    value ?? '',
+    style: getFont(fontSize: 16, fontWeight: FontWeight.w300, color: color, decoration: decoration),
+    maxLines: maxLine,
+    overflow: maxLine != null ? TextOverflow.ellipsis : null,
+  );
+}
+
+Widget text_14_700(String? value, {Color color = textColorBlack, TextAlign textAlign = TextAlign.start}) {
+  return Text(
+    value ?? '',
+    style: getFont(fontSize: 14, fontWeight: FontWeight.w700, color: color),
+    textAlign: textAlign,
+  );
+}
+
+Widget text_14_600(String? value, {Color color = textColorBlack, TextAlign textAlign = TextAlign.start}) {
+  return Text(
+    value ?? '',
+    style: getFont(fontSize: 14, fontWeight: FontWeight.w600, color: color),
+    textAlign: textAlign,
+  );
+}
+
+Widget text_14_500(String? value, {Color color = textColorBlack, TextAlign textAlign = TextAlign.start, int? maxLine, TextOverflow? overflow}) {
+  return Text(
+    value ?? '',
+    style: getFont(fontSize: 14, fontWeight: FontWeight.w500, color: color),
+    textAlign: textAlign,
+    maxLines: maxLine,
+    overflow: overflow ?? (maxLine != null ? TextOverflow.ellipsis : null),
+  );
+}
+
+Widget text_14_400(String? value, {Color color = textColorBlack, int? maxLine, TextAlign textAlign = TextAlign.start}) {
+  return Text(
+    value ?? '',
+    style: getFont(fontSize: 14, fontWeight: FontWeight.w400, color: color),
     maxLines: maxLine,
     overflow: maxLine != null ? TextOverflow.ellipsis : null,
     textAlign: textAlign,
   );
 }
 
-Widget text_14_600(String? value, {Color color = textColorBlack}) {
+Widget text_14_300(String? value, {Color color = textColorBlack, TextStyle? textStyle, int? maxLine, TextAlign textAlign = TextAlign.start, TextOverflow? overflow}) {
   return Text(
-    "$value",
-    style: GoogleFonts.poppins(
-      color: color,
-      fontWeight: FontWeight.w600,
-      fontSize: 14,
-    ),
-  );
-}
-Widget text_14_300(String? value, {Color color = textColorBlack, FontStyle? fontStyle, TextAlign textAlign = TextAlign.start,TextOverflow textOverflow = TextOverflow.visible,int? maxLine }) {
-  return Text(
-    "$value",
-    style: GoogleFonts.poppins(
-      color: color,
-      fontStyle: fontStyle,
-      fontWeight: FontWeight.w300,
-      fontSize: 14,
-    ),
-    textAlign: textAlign,
-    overflow: textOverflow,
+    value ?? '',
+    style: getFont(fontSize: 14, fontWeight: FontWeight.w300, color: color).merge(textStyle),
     maxLines: maxLine,
-  );
-}
-
-Widget text_16_300(String? value, {Color color = textColorBlack, int? maxline, TextDecoration? decoration}) {
-  return Text(
-    "$value",
-    style: GoogleFonts.poppins(
-      color: color,
-      fontWeight: FontWeight.w300,
-      fontSize: 16,
-      decoration: decoration
-    ),
-    maxLines: maxline,
-  );
-}
-
-Widget text_18_400(String? value, {Color color = textColorBlack, int? maxline}) {
-  return Text(
-    "$value",
-    style:  GoogleFonts.poppins(
-      color: color,
-      fontWeight: FontWeight.w400,
-      fontSize: 18,
-    ),
-    maxLines: maxline,
-  );
-}
-
-Widget text_18_700(
-  String? value, {
-  Color color = textColorBlack,
-  TextAlign textAlign = TextAlign.start,
-}) {
-  return Text(
-    "$value",
-    style: GoogleFonts.poppins(
-      color: color,
-      fontWeight: FontWeight.w700,
-      fontSize: 18,
-    ),
+    overflow: overflow ?? (maxLine != null ? TextOverflow.ellipsis : null),
     textAlign: textAlign,
   );
 }
 
-Widget text_14_500(
-  String? value, {
-  Color color = textColorBlack,
-  TextAlign textAlign = TextAlign.start,
-  TextOverflow textOverflow = TextOverflow.visible, int? maxLine,
-}) {
+Widget text_14_300_lineThrough(String? value, {Color color = textColorBlack}) {
   return Text(
-    "$value",
-    style: GoogleFonts.poppins(
-      color: color,
-      fontWeight: FontWeight.w500,
-      fontSize: 14,
-    ),
-    textAlign: textAlign,
-    overflow: textOverflow,
+    value ?? '',
+    style: getFont(fontSize: 14, fontWeight: FontWeight.w400, color: color, decoration: TextDecoration.lineThrough),
+  );
+}
+
+Widget text_12_500(String? value, {Color color = textColorBlack, int? maxLine, TextAlign textAlign = TextAlign.start, TextOverflow? overflow}) {
+  return Text(
+    value ?? '',
+    style: getFont(fontSize: 12, fontWeight: FontWeight.w500, color: color),
     maxLines: maxLine,
-  );
-}
-
-Widget text_14_700(
-  String? value, {
-  Color color = textColorBlack,
-  TextAlign textAlign = TextAlign.start,
-}) {
-  return Text(
-    "$value",
-    style: GoogleFonts.poppins(
-      color: color,
-      fontWeight: FontWeight.w700,
-      fontSize: 14,
-    ),
+    overflow: overflow ?? (maxLine != null ? TextOverflow.ellipsis : null),
     textAlign: textAlign,
   );
 }
 
-Widget text_12_400(
-  String? value, {
-  Color color = textColorBlack,
-  TextAlign textAlign = TextAlign.start,
-  TextOverflow textOverflow = TextOverflow.visible,
-  int? maxLine,
-}) {
+Widget text_12_400(String? value, {Color color = textColorBlack, int? maxLine, TextAlign textAlign = TextAlign.start, TextOverflow? overflow}) {
   return Text(
-    "$value",
-    style: GoogleFonts.poppins(
-      color: color,
-      fontWeight: FontWeight.w400,
-      fontSize: 12,
-    ),
-    overflow: textOverflow,
-    textAlign: textAlign,
+    value ?? '',
+    style: getFont(fontSize: 12, fontWeight: FontWeight.w400, color: color),
     maxLines: maxLine,
+    overflow: overflow ?? (maxLine != null ? TextOverflow.ellipsis : null),
+    textAlign: textAlign,
   );
 }
 
-Widget text_12_300(
-  String? value, {
-  Color color = textColorBlack,
-  TextAlign textAlign = TextAlign.start,
-  TextOverflow textOverflow = TextOverflow.visible,
-  int? maxLine,
-}) {
+Widget text_12_300(String? value, {Color color = textColorBlack, int? maxLine, TextAlign textAlign = TextAlign.start, TextOverflow? overflow}) {
   return Text(
-    "$value",
-    style: GoogleFonts.poppins(
-      color: color,
-      fontWeight: FontWeight.w300,
-      fontSize: 12,
-    ),
-    overflow: textOverflow,
-    textAlign: textAlign,
+    value ?? '',
+    style: getFont(fontSize: 12, fontWeight: FontWeight.w300, color: color),
     maxLines: maxLine,
-  );
-}
-
-Widget text_12_500(String? value, {Color color = textColorBlack, int? maxline, textAlign = TextAlign.start, TextOverflow textOverflow = TextOverflow.visible}) {
-  return Text(
-    "$value",
-    style: GoogleFonts.poppins(
-      color: color,
-      fontWeight: FontWeight.w500,
-      fontSize: 12,
-    ),
-    maxLines: maxline,
+    overflow: overflow ?? (maxLine != null ? TextOverflow.ellipsis : null),
     textAlign: textAlign,
-    overflow: textOverflow,
   );
 }
 
-Widget text_12_400Max2(String? value, {Color color = textColorBlack, int? maxline}) {
+Widget text_10_400(String? value, {Color color = textColorBlack, int? maxLine, TextOverflow? overflow}) {
   return Text(
-    "$value",
-    style: GoogleFonts.poppins(
-      color: color,
-      fontWeight: FontWeight.w400,
-      fontSize: 12,
-    ),
-    overflow: TextOverflow.ellipsis,
-    maxLines: maxline,
+    value ?? '',
+    style: getFont(fontSize: 10, fontWeight: FontWeight.w400, color: color),
+    maxLines: maxLine,
+    overflow: overflow ?? (maxLine != null ? TextOverflow.ellipsis : null),
   );
 }
 
-Widget text_10_400(String? value, {Color color = textColorBlack, int? maxline}) {
-  return Text(
-    "$value",
-    style: TextStyle(
-      fontFamily: 'LiAdorNoirrit',
-      color: color,
-      fontWeight: FontWeight.w400,
-      fontSize: 10,
-    ),
-    maxLines: maxline,
-  );
-}
-
+/// Example RichText
 Widget alreadyHaveAccountText() {
   return Center(
     child: RichText(
       text: TextSpan(
-        style: TextStyle(
-          fontFamily: 'LiAdorNoirrit',
-          color: textColorBlack,
-          fontSize: 14,
-          fontWeight: FontWeight.w400,
-        ),
+        style: getFont(fontSize: 14, fontWeight: FontWeight.w400, color: textColorBlack),
         children: [
           const TextSpan(text: 'Already have an Account? '),
           TextSpan(
             text: 'Sign In',
-            style: TextStyle(
-              fontFamily: 'LiAdorNoirrit',
-              fontWeight: FontWeight.bold,
-              fontSize: 14,
-              color: textColorBlack,
-            ),
+            style: getFont(fontSize: 14, fontWeight: FontWeight.w700, color: textColorBlack),
           ),
         ],
       ),
-    ),
-  );
-}
-
-Widget text_14_300_linethrough(String? value, {Color color = textColorBlack}) {
-  return Text(
-    "$value",
-    style: GoogleFonts.poppins(
-      color: color,
-      fontWeight: FontWeight.w400,
-      fontSize: 14,
-      decoration: TextDecoration.lineThrough,
     ),
   );
 }

@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:growup_agro/app/routes/app_pages.dart';
 import 'package:growup_agro/utils/api_constants.dart';
 import 'package:growup_agro/widgets/custom_button.dart';
 import 'package:http/http.dart' as http;
@@ -120,6 +122,7 @@ class _AllPropertiesPageState extends State<AllPropertiesPage> {
   }
 
   Widget _buildPropertyCard(PropertyPackage package) {
+    String imageUrl = ApiConstants.getPackageImage(package.imageUrl);
     return Card(
       elevation: 2,
       color: Colors.white,
@@ -132,7 +135,7 @@ class _AllPropertiesPageState extends State<AllPropertiesPage> {
           Expanded(
             flex: 5,
             child: Image.network(
-              ApiConstants.getPackageImage(package.imageUrl),
+              imageUrl,
               fit: BoxFit.cover,
               errorBuilder: (_, __, ___) => Container(
                 color: Colors.grey.shade200,
@@ -207,13 +210,15 @@ class _AllPropertiesPageState extends State<AllPropertiesPage> {
                   SizedBox(
                     width: double.infinity,
                     child: CustomButton(
-                      text: "Coming Soon...",
+                      text: "Details",
                       onPressed: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          const SnackBar(
-                            content: Text("Coming soon: Property details page"),
-                          ),
-                        );
+                        // debugPrint(imageUrl);
+                        Get.toNamed(Routes.PROPERTIE_DETAILS);
+                        // ScaffoldMessenger.of(context).showSnackBar(
+                        //   const SnackBar(
+                        //     content: Text("Coming soon: Property details page"),
+                        //   ),
+                        // );
                       },
                       backgroundColor: const Color(0xFF2E7D32),
                       height: 28,

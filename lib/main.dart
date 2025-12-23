@@ -4,6 +4,7 @@ import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:growup_agro/app/theme/colors.dart';
 import 'package:growup_agro/app/utils/utils.dart';
 import 'package:growup_agro/utils/api_constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -88,7 +89,7 @@ class MyApp extends StatelessWidget {
           ),
 
           appBarTheme: AppBarTheme(
-            backgroundColor: const Color(0xFF2E7D32), // Optional: set background color
+            backgroundColor: deepGreenColor, // Optional: set background color
             elevation: 0,
             centerTitle: true,
             // foregroundColor: Colors.white,

@@ -36,6 +36,8 @@ abstract class Routes {
   static const TAX_CERTIFICATE = _Paths.TAX_CERTIFICATE;
   static const PROJECT_CERTIFICATE = _Paths.PROJECT_CERTIFICATE;
   static const MY_PROJECTS = _Paths.MY_PROJECTS;
+  static const ALL_PROJECT_DETAILS = _Paths.ALL_PROJECT_DETAILS;
+  static const PROPERTIE_DETAILS = _Paths.PROPERTIE_DETAILS;
 }
 
 abstract class _Paths {
@@ -73,4 +75,6 @@ abstract class _Paths {
   static const TAX_CERTIFICATE = '/tax-certificate';
   static const PROJECT_CERTIFICATE = '/project-certificate';
   static const MY_PROJECTS = '/my-projects';
+  static const ALL_PROJECT_DETAILS = '/all-project-details';
+  static const PROPERTIE_DETAILS = '/propertie-details';
 }
