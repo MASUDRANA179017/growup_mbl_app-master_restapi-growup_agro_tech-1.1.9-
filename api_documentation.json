@@ -1,0 +1,620 @@
+
+[
+  {
+    "file_path": "/Users/mdhabiburrahman/StudioProjects/hello/lib/app/modules/my_register/controllers/my_register_controller.dart",
+    "api_calls": [
+      {
+        "endpoint_url": "https://growupagro.tech/api/user-registration",
+        "http_method": "POST",
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "request_body": {
+          "name": "String",
+          "email": "String",
+          "phone": "String",
+          "password": "String",
+          "password_confirmation": "String"
+        },
+        "response": {
+          "success": {
+            "status_code_range": "200-299",
+            "response_body": "{\"message\": \"Registration successful\"}"
+          },
+          "error": {
+            "status_code_range": "4xx",
+            "response_body": "{\"errors\": {\"field_name\": [\"Error message\"]}}"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file_path": "/Users/mdhabiburrahman/StudioProjects/hello/lib/app/modules/my_login/controllers/my_login_controller.dart",
+    "api_calls": [
+      {
+        "endpoint_url": "https://growupagro.tech/api/forgot-password",
+        "http_method": "GET",
+        "headers": {},
+        "request_body": {},
+        "response": {
+          "success": {
+            "status_code_range": "200",
+            "response_body": "{\"redirect_url\": \"String\"}"
+          },
+          "error": {}
+        }
+      },
+      {
+        "endpoint_url": "https://growupagro.tech/api/investor/login",
+        "http_method": "POST",
+        "headers": {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        "request_body": {
+          "phone_email": "String",
+          "password": "String"
+        },
+        "response": {
+          "success": {
+            "status_code_range": "200",
+            "response_body": "{\"token\": \"String\", \"user\": {\"name\": \"String\", \"email\": \"String\", \"phone\": \"String\", \"investor_code\": \"String\", \"id\": \"int\", \"image\": \"String\", \"address\": \"String\"}, \"wallet_balance\": \"double\", \"total_transation\": \"double\", \"total_investment\": \"double\", \"total_income\": \"double\", \"todays_income\": \"double\", \"total_projects\": \"int\"}"
+          },
+          "error": {
+            "status_code_range": "4xx",
+            "response_body": "{\"message\": \"Invalid credentials\"}"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file_path": "/Users/mdhabiburrahman/StudioProjects/hello/lib/app/data/providers/property_provider/property_provider.dart",
+    "api_calls": [
+      {
+        "endpoint_url": "https://growupagro.tech/api/list",
+        "http_method": "GET",
+        "headers": {
+          "Accept": "application/json"
+        },
+        "request_body": {},
+        "response": {
+          "success": {},
+          "error": {}
+        }
+      }
+    ]
+  },
+  {
+    "file_path": "/Users/mdhabiburrahman/StudioProjects/hello/lib/views/project_Descriotion_page.dart",
+    "api_calls": [
+      {
+        "endpoint_url": "https://growupagro.tech/api/investor/project-details",
+        "http_method": "GET",
+        "headers": {
+          "Authorization": "Bearer $token",
+          "Content-Type": "application/json"
+        },
+        "query_params": {
+          "investor_code": "String",
+          "project_id": "String"
+        },
+        "response": {
+          "success": {
+            "status_code_range": "200",
+            "response_body": "{\"success\":true,\"data\":{\"id\":\"int\",\"project_name\":\"String\",\"project_code\":\"String\",\"project_category_name\":\"String\",\"business_type_name\":\"String\",\"overview_html\":\"String\",\"project_start_date\":\"String\",\"project_end_date\":\"String\",\"roi_start_date\":\"String\",\"investment_goal\":\"int\",\"min_investment_amount\":\"int\",\"in_waiting\":\"int\",\"rasied\":\"int\",\"annual_roi\":\"String\",\"project_duration_viewer\":\"String\",\"investment_time\":\"int\",\"status\":\"int\",\"image_url\":\"String\",\"security_information\":[{\"name\":\"String\"}],\"key_points_data\":[{\"title\":\"String\",\"description\":\"String\"}]}}"
+          },
+          "error": {
+            "status_code_range": "4xx/5xx",
+            "response_body": "{\"message\": \"Failed to load project details\"}"
+          }
+        }
+      },
+      {
+        "endpoint_url": "https://growupagro.tech/api/investor/invest-now",
+        "http_method": "POST",
+        "headers": {
+          "Authorization": "Bearer $token",
+          "Content-Type": "application/json"
+        },
+        "request_body": {
+          "project_id": "int",
+          "invest_amount": "int",
+          "investment_media": 1,
+          "investor_code": "String"
+        },
+        "response": {
+          "success": {
+            "status_code_range": "200",
+            "response_body": "{\"success\": true, \"message\": \"Investment successful!\"}"
+          },
+          "error": {
+            "status_code_range": "4xx/5xx",
+            "response_body": "{\"success\": false, \"message\": \"Investment failed\"}"
+          }
+        }
+      },
+      {
+        "endpoint_url": "https://growupagro.tech/api/transaction-initiate",
+        "http_method": "POST",
+        "headers": {
+          "Authorization": "Bearer $token",
+          "Content-Type": "application/json"
+        },
+        "request_body": {
+          "amount": "int",
+          "project_id": "int"
+        },
+        "response": {
+          "success": {
+            "status_code_range": "200/201",
+            "response_body": "{\"success\": true, \"data\": {\"transaction_id\": \"String\", \"wallet_transaction_id\": \"int\", \"amount\": \"double\"}}"
+          },
+          "error": {
+            "status_code_range": "4xx/5xx",
+            "response_body": "{\"success\": false, \"message\": \"Failed to initiate transaction.\"}"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file_path": "/Users/mdhabiburrahman/StudioProjects/hello/lib/paymentService/payment_service.dart",
+    "api_calls": [
+      {
+        "endpoint_url": "https://growupagro.tech/api/sslcommerz/payment/success",
+        "http_method": "GET",
+        "headers": {},
+        "query_params": {
+          "transaction_id": "String"
+        },
+        "request_body": {},
+        "response": {
+          "success": {
+            "status_code_range": "200",
+            "response_body": "{\"message\": \"success\"}"
+          },
+          "error": {
+            "status_code_range": "4xx/5xx",
+            "response_body": "{\"message\": \"failed\"}"
+          }
+        }
+      },
+      {
+        "endpoint_url": "https://growupagro.tech/api/shurjopay/payment/callback",
+        "http_method": "GET",
+        "headers": {},
+        "query_params": {
+          "order_id": "String"
+        },
+        "request_body": {},
+        "response": {
+          "success": {
+            "status_code_range": "200",
+            "response_body": "{\"message\": \"success\"}"
+          },
+          "error": {
+            "status_code_range": "4xx/5xx",
+            "response_body": "{\"message\": \"failed\"}"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file_path": "/Users/mdhabiburrahman/StudioProjects/hello/lib/main_screen.dart",
+    "api_calls": [
+      {
+        "endpoint_url": "https://growupagro.tech/api/investor/logout",
+        "http_method": "POST",
+        "headers": {
+          "Authorization": "Bearer $token",
+          "Accept": "application/json"
+        },
+        "request_body": {
+          "investor_code": "String"
+        },
+        "response": {
+          "success": {
+            "status_code_range": "200",
+            "response_body": "{\"message\": \"Logout successful\"}"
+          },
+          "error": {
+            "status_code_range": "4xx/5xx",
+            "response_body": "{\"message\": \"Logout failed. Please try again\"}"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file_path": "/Users/mdhabiburrahman/StudioProjects/hello/lib/views/all_properties.dart",
+    "api_calls": [
+      {
+        "endpoint_url": "https://growupagro.tech/api/properties",
+        "http_method": "GET",
+        "headers": {},
+        "request_body": {},
+        "response": {
+          "success": {
+            "status_code_range": "200",
+            "response_body": "{\"property_packages\":[{\"id\":\"int\",\"package_name\":\"String\",\"property_name\":\"String\",\"image_url\":\"String\"}]}"
+          },
+          "error": {
+            "status_code_range": "4xx/5xx",
+            "response_body": "{\"message\": \"Failed to load properties\"}"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file_path": "/Users/mdhabiburrahman/StudioProjects/hello/lib/views/all_products_page.dart",
+    "api_calls": [
+      {
+        "endpoint_url": "https://growupagro.tech/api/products",
+        "http_method": "GET",
+        "headers": {
+          "Authorization": "Bearer $token",
+          "Accept": "application/json"
+        },
+        "query_params": {
+          "investor_code": "String"
+        },
+        "request_body": {},
+        "response": {
+          "success": {
+            "status_code_range": "200",
+            "response_body": "{\"data\":{\"products\":[{\"id\":\"int\",\"product_name\":\"String\",\"slug\":\"String\",\"category_name\":\"String\",\"selling_price\":\"String\",\"image_url\":\"String\"}]}}"
+          },
+          "error": {
+            "status_code_range": "4xx/5xx",
+            "response_body": "{\"message\": \"Failed to load products\"}"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file_path": "/Users/mdhabiburrahman/StudioProjects/hello/lib/views/project_certificate_page.dart",
+    "api_calls": [
+      {
+        "endpoint_url": "https://growupagro.tech/api/investor/project-certificates",
+        "http_method": "GET",
+        "headers": {
+          "Authorization": "Bearer $token",
+          "Accept": "application/json"
+        },
+        "query_params": {
+          "investor_code": "String"
+        },
+        "response": {
+          "success": {
+            "status_code_range": "200",
+            "response_body": "{\"status\":true,\"data\":[{\"id\":\"int\",\"name\":\"String\",\"code\":\"String\",\"end_date\":\"String\",\"roi\":\"String\",\"download_url\":\"String\"}]}"
+          },
+          "error": {
+            "status_code_range": "4xx/5xx",
+            "response_body": "{\"message\": \"Failed to load certificates.\"}"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file_path": "/Users/mdhabiburrahman/StudioProjects/hello/lib/views/investment_history.dart",
+    "api_calls": [
+      {
+        "endpoint_url": "https://growupagro.tech/api/investment-history",
+        "http_method": "GET",
+        "headers": {
+          "Accept": "application/json",
+          "Authorization": "Bearer $token"
+        },
+        "query_params": {
+          "investor_code": "String"
+        },
+        "request_body": {},
+        "response": {
+          "success": {
+            "status_code_range": "200",
+            "response_body": "{\"data\":[{\"id\":\"int\",\"project_id\":\"int\",\"project_title\":\"String\",\"project_category\":\"String\",\"total_investment\":\"double\",\"project_progress\":\"double\",\"days_remaining\":\"int\",\"status\":\"String\",\"investment_count\":\"int\",\"total_roi_amount\":\"double\",\"capital_return_details\":\"double\",\"project_image\":\"String\",\"roi_details\":\"String\"}]}"
+          },
+          "error": {
+            "status_code_range": "4xx/5xx",
+            "response_body": "{\"message\": \"Investment history not found\"}"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file_path": "/Users/mdhabiburrahman/StudioProjects/hello/lib/views/roi_details_page.dart",
+    "api_calls": [
+      {
+        "endpoint_url": "https://growupagro.tech/api/roi-list",
+        "http_method": "GET",
+        "headers": {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer $token"
+        },
+        "query_params": {
+          "investor_code": "String",
+          "project_id": "String"
+        },
+        "request_body": {},
+        "response": {
+          "success": {
+            "status_code_range": "200",
+            "response_body": "{\"success\":true,\"data\":[{\"project_id\":\"int\",\"investor_id\":\"int\",\"roi_amount\":\"double\",\"counting_date\":\"String\"}]}"
+          },
+          "error": {
+            "status_code_range": "4xx/5xx",
+            "response_body": "{}"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file_path": "/Users/mdhabiburrahman/StudioProjects/hello/lib/utils/total_projects_api.dart",
+    "api_calls": [
+      {
+        "endpoint_url": "https://growupagro.tech/api/all-projects",
+        "http_method": "GET",
+        "headers": {
+          "Accept": "application/json",
+          "Authorization": "Bearer $token"
+        },
+        "request_body": {},
+        "response": {
+          "success": {
+            "status_code_range": "200",
+            "response_body": "{\"projects\":{\"Long Term\":[{\"id\":\"int\",\"projectName\":\"String\",\"businessType_name\":\"String\",\"projectCode\":\"String\",\"projectArea\":\"String\",\"imageUrl\":\"String\",\"project_start_date\":\"String\",\"project_end_date\":\"String\",\"investmentGoal\":\"double\",\"min_investment_amount\":\"double\",\"raised\":\"double\",\"remaining_goal\":\"double\",\"remaining_opportunity_days\":\"int\",\"project_duration_viewer\":\"String\",\"businessTypeName\":\"String\",\"annualRoi\":\"double\",\"status\":\"int\",\"roi_start_date\":\"String\"}],\"Short Term\":[{\"id\":\"int\",\"projectName\":\"String\",\"businessType_name\":\"String\",\"projectCode\":\"String\",\"projectArea\":\"String\",\"imageUrl\":\"String\",\"project_start_date\":\"String\",\"project_end_date\":\"String\",\"investmentGoal\":\"double\",\"min_investment_amount\":\"double\",\"raised\":\"double\",\"remaining_goal\":\"double\",\"remaining_opportunity_days\":\"int\",\"project_duration_viewer\":\"String\",\"businessTypeName\":\"String\",\"annualRoi\":\"double\",\"status\":\"int\",\"roi_start_date\":\"String\"}]}}"
+          },
+          "error": {
+            "status_code_range": "4xx/5xx",
+            "response_body": "{\"message\": \"Failed to fetch projects\"}"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file_path": "/Users/mdhabiburrahman/StudioProjects/hello/lib/views/investor_dashboard.dart",
+    "api_calls": [
+      {
+        "endpoint_url": "https://growupagro.tech/api/investor/sliders",
+        "http_method": "GET",
+        "headers": {
+          "Authorization": "Bearer $token",
+          "Accept": "application/json"
+        },
+        "request_body": {},
+        "response": {
+          "success": {
+            "status_code_range": "200",
+            "response_body": "{\"status\":\"success\",\"data\":[{\"image_url\":\"String\"}]}"
+          },
+          "error": {
+            "status_code_range": "401",
+            "response_body": "{\"message\": \"Unauthenticated.\"}"
+          }
+        }
+      },
+      {
+        "endpoint_url": "https://growupagro.tech/api/wallet-history",
+        "http_method": "GET",
+        "headers": {
+          "Authorization": "Bearer $token",
+          "Content-Type": "application/json"
+        },
+        "query_params": {
+          "investor_code": "String"
+        },
+        "request_body": {},
+        "response": {
+          "success": {
+            "status_code_range": "200",
+            "response_body": "{\"success\":true,\"data\":[{\"id\":\"int\",\"invoice_no\":\"String\",\"project_id\":\"int\",\"context\":\"String\",\"trx_id\":\"String\",\"wallet_id\":\"int\",\"type\":\"String\",\"amount\":\"double\",\"direction\":\"String\",\"credit_account_id\":\"int\",\"debit_account_id\":\"int\",\"note\":\"String\",\"recharge_id\":\"int\",\"deposit_request_id\":\"int\",\"withdraw_request_id\":\"int\",\"created_at\":\"String\",\"date\":\"String\",\"updated_at\":\"String\",\"status\":\"String\",\"actioned_by\":\"String\",\"invoice_download_url\":\"String\",\"invoice_view_url\":\"String\"}]}"
+          },
+          "error": {
+            "status_code_range": "4xx/5xx",
+            "response_body": "{\"message\": \"No wallet history found\"}"
+          }
+        }
+      },
+      {
+        "endpoint_url": "https://growupagro.tech/api/all-projects",
+        "http_method": "GET",
+        "headers": {
+          "Authorization": "Bearer $token",
+          "Accept": "application/json"
+        },
+        "request_body": {},
+        "response": {
+          "success": {
+            "status_code_range": "200",
+            "response_body": "{\"projects\":{\"Live Projects\":[{\"imageUrl\":\"String\",\"businessType_name\":\"String\",\"investmentType_name\":\"String\",\"id\":\"int\",\"remaining_opportunity_days\":\"int\",\"investmentGoal\":\"double\",\"raised\":\"int\",\"remaining_goal\":\"int\",\"project_duration_viewer\":\"String\",\"min_investment_amount\":\"double\",\"projected\":\"String\",\"annualRoi\":\"int\",\"project_status\":\"String\",\"projectName\":\"String\",\"project_start_date\":\"String\",\"project_end_date\":\"String\",\"roi_start_date\":\"String\"}]}}"
+          },
+          "error": {
+            "status_code_range": "4xx/5xx",
+            "response_body": "{\"message\": \"Failed to load Live Projects\"}"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "file_path": "/Users/mdhabiburrahman/StudioProjects/hello/lib/views/ProfilePage.dart",
+    "api_calls": [
+      {
+        "endpoint_url": "https://growupagro.tech/api/investor/profile",
+        "http_method": "GET",
+        "headers": {
+          "Authorization": "Bearer $token",
+          "Accept": "application/json"
+        },
+        "query_params": {
+          "investor_code": "String"
+        },
+        "request_body": {},
+        "response": {
+          "success": {
+            "status_code_range": "200",
+            "response_body": "{\"data\":{\"investor\":{\"investor_code\":\"String\",\"name\":\"String\",\"phone\":\"String\",\"email\":\"String\",\"nid\":\"String\",\"district_id\":\"dynamic\",\"upazila_id\":\"dynamic\",\"address\":\"String\",\"image\":\"String\",\"nid_front\":\"String\",\"nid_back\":\"String\"},\"banking_information\":{\"bank_account_name\":\"String\",\"bank_name\":\"String\",\"branch_name\":\"String\",\"account_number\":\"String\",\"routing_no\":\"String\",\"bkash_number\":\"String\",\"rocket_number\":\"String\",\"nagad_number\":\"String\"},\"nominee_information\":{\"name\":\"String\",\"relation\":\"String\",\"contact\":\"String\",\"nid\":\"String\",\"address\":\"String\",\"nomineebankAccountName\":\"String\",\"nomineebankName\":\"String\",\"nomineebranchName\":\"String\",\"nomineeaccountNumber\":\"String\"},\"profile_completion\":{\"percentage\":\"int\",\"missing_fields\":[\"String\"]}}}"
+          },
+          "error": {
+            "status_code_range": "4xx/5xx",
+            "response_body": "{\"message\":\"Failed to load profile\"}"
+          }
+        }
+      },
+      {
+        "endpoint_url": "https://growupagro.tech/api/investor/profile/investor-info/update",
+        "http_method": "POST",
+        "headers": {
+          "Authorization": "Bearer $token",
+          "Accept": "application/json"
+        },
+        "request_body": {
+          "investor_code": "String",
+          "phone": "String",
+          "email": "String",
+          "district_id": "String",
+          "upazila_id": "String",
+          "nid": "String",
+          "address": "String",
+          "nid_front": "File",
+          "nid_back": "File"
+        },
+        "response": {
+          "success": {
+            "status_code_range": "200",
+            "response_body": "{\"success\":true,\"message\":\"Investor info updated successfully!\"}"
+          },
+          "error": {
+            "status_code_range": "4xx/5xx",
+            "response_body": "{\"success\":false,\"message\":\"Update failed: Unknown error\"}"
+          }
+        }
+      },
+      {
+        "endpoint_url": "https://growupagro.tech/api/investor/nominee/info/create",
+        "http_method": "POST",
+        "headers": {
+          "Authorization": "Bearer $token",
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        "request_body": {
+          "investor_code": "String",
+          "name": "String",
+          "contact": "String",
+          "nid": "String",
+          "relation": "String",
+          "address": "String",
+          "nominee_bank_account_name": "String",
+          "nominee_bank_name": "String",
+          "nominee_branch_name": "String",
+          "nominee_account_number": "String"
+        },
+        "response": {
+          "success": {
+            "status_code_range": "200",
+            "response_body": "{\"success\":true,\"message\":\"Nominee information saved successfully\",\"nominee\":{\"id\":\"int\"}}"
+          },
+          "error": {
+            "status_code_range": "4xx/5xx",
+            "response_body": "{\"success\":false,\"message\":\"Nominee update failed\"}"
+          }
+        }
+      },
+      {
+        "endpoint_url": "https://growupagro.tech/api/investor/profile/nominee-info/update",
+        "http_method": "POST",
+        "headers": {
+          "Authorization": "Bearer $token",
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        "request_body": {
+          "investor_code": "String",
+          "nominee_id": "String",
+          "name": "String",
+          "contact": "String",
+          "nid": "String",
+          "relation": "String",
+          "address": "String",
+          "nominee_bank_account_name": "String",
+          "nominee_bank_name": "String",
+          "nominee_branch_name": "String",
+          "nominee_account_number": "String"
+        },
+        "response": {
+          "success": {
+            "status_code_range": "200",
+            "response_body": "{\"success\":true,\"message\":\"Nominee info updated successfully!\"}"
+          },
+          "error": {
+            "status_code_range": "4xx/5xx",
+            "response_body": "{\"success\":false,\"message\":\"Nominee update failed\"}"
+          }
+        }
+      },
+      {
+        "endpoint_url": "https://growupagro.tech/api/investor/profile/bank-info/update",
+        "http_method": "POST",
+        "headers": {
+          "Authorization": "Bearer $token",
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        "request_body": {
+          "investor_code": "String",
+          "bank_account_name": "String",
+          "bank_name": "String",
+          "branch_name": "String",
+          "account_number": "String",
+          "routing_no": "String"
+        },
+        "response": {
+          "success": {
+            "status_code_range": "200",
+            "response_body": "{\"success\":true,\"message\":\"Bank Info updated successfully\"}"
+          },
+          "error": {
+            "status_code_range": "4xx/5xx",
+            "response_body": "{\"success\":false,\"message\":\"Bank info update failed\"}"
+          }
+        }
+      },
+      {
+        "endpoint_url": "https://growupagro.tech/api/investor/profile/mobile-banking-info/update",
+        "http_method": "POST",
+        "headers": {
+          "Authorization": "Bearer $token",
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        "request_body": {
+          "investor_code": "String",
+          "bkash_number": "String",
+          "rocket_number": "String",
+          "nagad_number": "String"
+        },
+        "response": {
+          "success": {
+            "status_code_range": "200",
+            "response_body": "{\"success\":true,\"message\":\"Mobile Banking Info updated successfully\"}"
+          },
+          "error": {
+            "status_code_range": "4xx/5xx",
+            "response_body": "{\"success\":false,\"message\":\"Mobile banking update failed\"}"
+          }
+        }
+      }
+    ]
+  }
+]
