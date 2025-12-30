@@ -89,7 +89,7 @@ class CertificatePage extends StatefulWidget {
 
 class _CertificatePageState extends State<CertificatePage> {
   // static const String _url = '${ApiConstants.imgBaseUrl}/crretificates';
-  final String _url = ApiConstants.crretificatesUrl;
+  final String _url = ApiConstants.certificatesUrl;
 
   @override
   void initState() {

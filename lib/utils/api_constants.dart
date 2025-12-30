@@ -8,10 +8,12 @@ class ApiConstants {
 
   static const String devBaseUrl = "https://growupagro.tech/api";
   // static const String prodBaseUrl = "https://admin-growup.onebitstore.site/api";
-  static const String prodBaseUrl = "https://growupagro.tech/api";
+  static const String prodBaseUrl = "https://growupagro.online/api";
+  // static const String prodBaseUrl = "https://growupagro.tech/api";
   static const String devImgBaseUrl = "https://dev-growup.onebitstore.site";
   // static const String prodImgBaseUrl = "https://admin-growup.onebitstore.site";
-  static const String prodImgBaseUrl = "https://growupagro.tech";
+  static const String prodImgBaseUrl = "https://growupagro.online";
+  // static const String prodImgBaseUrl = "https://growupagro.tech";
 
 // Toggle environment
   static const bool isProd = true;
@@ -39,7 +41,7 @@ class ApiConstants {
   static String get blogsUrl =>
       isProd ? "$prodImgBaseUrl/blogs" : "https://dev-growup.onebitstore.site/blogs";
 
-  static String get crretificatesUrl =>
+  static String get certificatesUrl =>
       isProd ? "$prodImgBaseUrl/crretificates" : "https://dev-growup.onebitstore.site/crretificates";
 
 

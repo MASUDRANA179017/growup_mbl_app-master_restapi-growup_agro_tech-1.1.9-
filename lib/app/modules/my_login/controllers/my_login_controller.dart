@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -130,6 +131,9 @@ class MyLoginController extends GetxController with GetTickerProviderStateMixin 
 
   Future<String> _loginRequest(String email, String password) async {
     try {
+      final url = ApiConstants.login;
+      log(url);
+      log({'phone_email': email, 'password': password}.toString());
       final response = await http
           .post(
         Uri.parse(ApiConstants.login),
@@ -141,6 +145,7 @@ class MyLoginController extends GetxController with GetTickerProviderStateMixin 
       )
           .timeout(const Duration(seconds: 15));
 
+      log(response.body);
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
         final token = data['token'];
