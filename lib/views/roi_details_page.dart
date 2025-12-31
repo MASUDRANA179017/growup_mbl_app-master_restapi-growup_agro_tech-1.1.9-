@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:growup_agro/models/roi_model.dart';
 import 'package:growup_agro/utils/api_constants.dart';
@@ -66,6 +67,7 @@ class _RoiDetailsPageState extends State<RoiDetailsPage> {
       ApiConstants.roiList(widget.investorCode, widget.projectId.toString()),
     );
 
+    log(url.path);
     try {
       final response = await http.get(
         url,
@@ -75,6 +77,7 @@ class _RoiDetailsPageState extends State<RoiDetailsPage> {
         },
       );
 
+      log(response.body);
       if (response.statusCode == 200) {
         final jsonData = jsonDecode(response.body);
         if (jsonData['success'] == true && jsonData['data'] != null) {

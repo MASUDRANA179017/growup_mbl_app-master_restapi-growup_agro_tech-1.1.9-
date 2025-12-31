@@ -1,4 +1,5 @@
 import 'package:growup_agro/app/data/providers/base_provider.dart';
+import 'package:growup_agro/models/all_properties.model.dart';
 import 'package:growup_agro/utils/api_constants.dart';
 
 class PropertyProvider extends BaseConnect{
@@ -9,4 +10,8 @@ class PropertyProvider extends BaseConnect{
     });
     //TODO: here will be logic of error handling and return response by using model
   }
+
+  // Future<AllPropertiesResponse?> getAllProperties()async{
+  //   return await safeApiCall<AllPropertiesResponse>(request: ()=> get(ApiConstants.allProperties, headers: ApiConstants.headers), onSuccess: (json)=> AllPropertiesResponse.fromJson(json));
+  // }
 }

@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:growup_agro/app/component/logger/print_global.dart';
+import 'package:growup_agro/app/data/models/all_products_model/Products.dart';
 import 'package:growup_agro/utils/api_constants.dart';
 import 'package:growup_agro/views/product_details.dart';
 import 'package:growup_agro/widgets/custom_button.dart';
@@ -16,7 +18,7 @@ class AllProductsPage extends StatefulWidget {
 }
 
 class _AllProductsPageState extends State<AllProductsPage> {
-  List<Product> products = [];
+  List<Products> products = [];
   bool isLoading = true;
   final ScrollController _scrollController = ScrollController();
   bool _showBackToTopButton = false;
@@ -41,16 +43,18 @@ class _AllProductsPageState extends State<AllProductsPage> {
     final investorCode = prefs.getString('investor_code') ?? '';
 
     final url = Uri.parse(ApiConstants.products(investorCode));
+    globalPrint(url.path);
     final response = await http.get(
       url,
       headers: {'Authorization': 'Bearer $token', 'Accept': 'application/json'},
     );
 
+    globalPrint(response.body);
     if (response.statusCode == 200) {
       final jsonData = jsonDecode(response.body);
       final List productsData = jsonData['data']['products'];
       setState(() {
-        products = productsData.map((e) => Product.fromJson(e)).toList();
+        products = productsData.map((e) => Products.fromJson(e)).toList();
         isLoading = false;
       });
     } else {
@@ -115,8 +119,8 @@ class _AllProductsPageState extends State<AllProductsPage> {
     );
   }
 
-  Widget _buildProductCard(BuildContext context, Product product) {
-    final num price = product.numericSellingPrice;
+  Widget _buildProductCard(BuildContext context, Products product) {
+    final num price = product.price ?? 0;
     final bool isAvailable = price > 0;
 
     return Card(
@@ -139,7 +143,7 @@ class _AllProductsPageState extends State<AllProductsPage> {
             child: Stack(
               children: [
                 Image.network(
-                  ApiConstants.getProductImage(product.imageUrl),
+                  ApiConstants.getProductImage(product.thumbnailImage),
                   fit: BoxFit.cover,
                   width: double.infinity,
                   height: 120,
@@ -210,7 +214,7 @@ class _AllProductsPageState extends State<AllProductsPage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  product.productName,
+                  product.name ?? '',
                   style: const TextStyle(
                     fontSize: 14,
                     fontWeight: FontWeight.w600,
@@ -219,7 +223,8 @@ class _AllProductsPageState extends State<AllProductsPage> {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  product.categoryName,
+                  "TODO:",
+                  // product.categoryName,
                   style: TextStyle(fontSize: 11, color: Colors.grey.shade600),
                 ),
                 const SizedBox(height: 6),
@@ -250,7 +255,7 @@ class _AllProductsPageState extends State<AllProductsPage> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) =>
-                                    ProductDetailsPage(slug: product.slug),
+                                    ProductDetailsPage(slug: product.slug ?? ''),
                               ),
                             );
                           },

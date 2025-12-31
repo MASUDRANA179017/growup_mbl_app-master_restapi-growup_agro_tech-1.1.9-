@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:growup_agro/app/component/logger/print_global.dart';
 import 'package:growup_agro/utils/api_constants.dart';
 import 'package:growup_agro/views/project_Descriotion_page.dart';
 import 'package:http/http.dart' as http;
@@ -72,30 +73,38 @@ class _LiveProjectsPageState extends State<LiveProjectsPage> {
     final prefs = await SharedPreferences.getInstance();
     final token = prefs.getString('auth_token');
 
-    if (token == null) throw Exception('Token not found. Please log in again.');
+    try{
+      globalPrint(url.path);
+      if (token == null) throw Exception('Token not found. Please log in again.');
 
-    final response = await http.get(
-      url,
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json',
-        'Authorization': 'Bearer $token',
-      },
-    );
+      final response = await http.get(
+        url,
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
+      );
 
-    if (response.statusCode == 200) {
-      final Map<String, dynamic> decoded = json.decode(response.body);
-      final List<dynamic>? projects = decoded['projects']?['Live Projects'];
+      globalPrint(response.body);
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> decoded = json.decode(response.body);
+        final List<dynamic>? projects = decoded['data']?['Live Projects'];
 
-      if (projects == null) throw Exception('Live projects not found.');
+        if (projects == null) throw Exception('Live projects not found.');
 
-      _allProjects =
-          projects.map<LiveProject>((p) => LiveProject.fromJson(p)).toList();
-      _filteredProjects = _allProjects;
-      return _allProjects;
-    } else {
-      throw Exception('Failed to load projects');
+        _allProjects =
+            projects.map<LiveProject>((p) => LiveProject.fromJson(p)).toList();
+        _filteredProjects = _allProjects;
+        return _allProjects;
+      } else {
+        throw Exception('Failed to load projects');
+      }
+    }catch(e, stack){
+      debugPrintStack(stackTrace: stack);
+      return [];
     }
+
   }
 
   String formatDate(String? rawDate) {

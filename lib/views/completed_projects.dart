@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:growup_agro/app/component/logger/print_global.dart';
 import 'package:growup_agro/utils/api_constants.dart';
 import 'package:growup_agro/views/project_Descriotion_page.dart';
 import 'package:http/http.dart' as http;
@@ -55,6 +57,7 @@ class _CompletedProjectsPageState extends State<CompletedProjectsPage> {
     final investorCode = prefs.getString('investor_code') ?? '';
 
     final url = Uri.parse(ApiConstants.completedProjects(investorCode));
+    globalPrint(url.path);
     final response = await http.get(
       url,
       headers: {
@@ -63,10 +66,11 @@ class _CompletedProjectsPageState extends State<CompletedProjectsPage> {
       },
     );
 
+    globalPrint(response.body);
     if (response.statusCode == 200) {
       final Map<String, dynamic> jsonData = json.decode(response.body);
-      if (jsonData['status'] == 'success') {
-        final List<dynamic> projectsJson = jsonData['projects'];
+      if (jsonData['data'] != null) {
+        final List<dynamic> projectsJson = jsonData['data'];
         _allProjects =
             projectsJson.map((json) => CompletedProject.fromJson(json)).toList();
         _filteredProjects = _allProjects;

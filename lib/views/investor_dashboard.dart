@@ -1,7 +1,11 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:growup_agro/app/component/logger/print_global.dart';
+import 'package:growup_agro/app/routes/app_pages.dart';
 import 'package:growup_agro/generated/assets.dart';
 import 'package:growup_agro/models/live_project_model.dart';
 import 'package:growup_agro/models/wallet_history_model.dart';
@@ -136,6 +140,7 @@ class _DashboardInvestorState extends State<DashboardInvestor> {
     //   '${ApiConstants.imgBaseUrl}/api/investor/sliders',
     // );
 
+    globalPrint(url.path);
     try {
       // Send token in headers instead of query param
       final response = await http.get(
@@ -146,6 +151,7 @@ class _DashboardInvestorState extends State<DashboardInvestor> {
         },
       );
 
+      globalPrint(response.body);
       // debugPrint('Response Body: ${response.body}');
 
       if (response.statusCode == 200) {
@@ -2001,7 +2007,8 @@ class _DashboardInvestorState extends State<DashboardInvestor> {
         await prefs.clear();
 
         if (context.mounted) {
-          Navigator.pushReplacementNamed(context, 'login');
+          // Navigator.pushReplacementNamed(context, 'login');
+          Get.offAllNamed(Routes.MY_LOGIN);
         }
 
         ScaffoldMessenger.of(context).showSnackBar(

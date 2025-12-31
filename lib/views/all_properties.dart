@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -16,7 +17,7 @@ class AllPropertiesPage extends StatefulWidget {
 }
 
 class _AllPropertiesPageState extends State<AllPropertiesPage> {
-  late Future<AllPropertiesResponse> _futureProperties;
+  late Future<AllPropertiesResponse?> _futureProperties;
   final ScrollController _scrollController = ScrollController();
   bool _showBackToTopButton = false;
 
@@ -40,13 +41,22 @@ class _AllPropertiesPageState extends State<AllPropertiesPage> {
     super.dispose();
   }
 
-  Future<AllPropertiesResponse> fetchProperties() async {
-    final response = await http.get(Uri.parse(ApiConstants.allProperties));
-    if (response.statusCode == 200) {
-      return AllPropertiesResponse.fromJson(jsonDecode(response.body));
-    } else {
-      throw Exception("Failed to load properties");
+  Future<AllPropertiesResponse?> fetchProperties() async {
+    var url = Uri.parse(ApiConstants.allProperties);
+    log(url.path);
+    try{
+      final response = await http.get(url);
+      log(response.body);
+      if (response.statusCode == 200) {
+        return AllPropertiesResponse.fromJson(jsonDecode(response.body));
+      } else {
+        throw Exception("Failed to load properties");
+      }
+    }catch(e){
+      Get.snackbar("Error", e.toString());
+      return null;
     }
+
   }
 
   void _scrollToTop() {
@@ -65,59 +75,69 @@ class _AllPropertiesPageState extends State<AllPropertiesPage> {
     if (screenWidth >= 900) crossAxisCount = 4;
     if (screenWidth >= 1200) crossAxisCount = 5;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "All Properties",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-            fontSize: 18,
-          ),
-        ),
-        backgroundColor: const Color(0xFF2E7D32),
-        centerTitle: true,
-      ),
-      backgroundColor: Colors.white,
-      body: FutureBuilder<AllPropertiesResponse>(
-        future: _futureProperties,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          if (snapshot.hasError) {
-            return Center(child: Text("Error: ${snapshot.error}"));
-          }
-          if (!snapshot.hasData || snapshot.data!.propertyPackages.isEmpty) {
-            return const Center(child: Text("No properties found"));
-          }
-
-          final items = snapshot.data!.propertyPackages;
-
-          return GridView.builder(
-            controller: _scrollController,
-            padding: const EdgeInsets.all(12),
-            itemCount: items.length,
-            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: crossAxisCount,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              childAspectRatio: 0.68,
+    return RefreshIndicator(
+      onRefresh: ()async{
+        fetchProperties();
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            "All Properties",
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              fontSize: 18,
             ),
-            itemBuilder: (context, index) {
-              final property = items[index];
-              return _buildPropertyCard(property);
-            },
-          );
-        },
+          ),
+          backgroundColor: const Color(0xFF2E7D32),
+          centerTitle: true,
+          actions: [
+            IconButton(onPressed: (){
+              fetchProperties();
+            }, icon: Icon(Icons.eighteen_mp))
+          ],
+        ),
+        backgroundColor: Colors.white,
+        body: FutureBuilder<AllPropertiesResponse?>(
+          future: _futureProperties,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            }
+            if (snapshot.hasError) {
+              return Center(child: Text("Error: ${snapshot.error}"));
+            }
+            if (!snapshot.hasData || snapshot.data!.propertyPackages.isEmpty) {
+              return const Center(child: Text("No properties found"));
+            }
+
+            final items = snapshot.data!.propertyPackages;
+
+            return GridView.builder(
+              controller: _scrollController,
+              padding: const EdgeInsets.all(12),
+              itemCount: items.length,
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: crossAxisCount,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                childAspectRatio: 0.68,
+              ),
+              itemBuilder: (context, index) {
+                final property = items[index];
+                return _buildPropertyCard(property);
+              },
+            );
+          },
+        ),
+        floatingActionButton: _showBackToTopButton
+            ? FloatingActionButton(
+                onPressed: _scrollToTop,
+                backgroundColor: Colors.orange,
+                child: const Icon(Icons.arrow_upward, color: Colors.white),
+              )
+            : null,
       ),
-      floatingActionButton: _showBackToTopButton
-          ? FloatingActionButton(
-              onPressed: _scrollToTop,
-              backgroundColor: Colors.orange,
-              child: const Icon(Icons.arrow_upward, color: Colors.white),
-            )
-          : null,
     );
   }
 

@@ -24,7 +24,7 @@ class ApiService {
 
       List<TotalProject> allProjects = [];
 
-      decoded['projects'].forEach((key, value) {
+      decoded['data'].forEach((key, value) {
         if (key == "Long Term" || key == "Short Term") {
           allProjects.addAll(
             (value as List).map((e) => TotalProject.fromJson(e)),

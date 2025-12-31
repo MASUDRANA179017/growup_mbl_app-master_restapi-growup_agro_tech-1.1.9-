@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:growup_agro/app/routes/app_pages.dart';
@@ -84,12 +85,14 @@ class MainScreenController extends GetxController {
     final token = prefs.getString('auth_token') ?? '';
     final investorCode = prefs.getString('investor_code') ?? '';
 
-    final url = Uri.parse(ApiConstants.investorProfile(investorCode));
-    final response = await http.get(url, headers: {
+    var url = ApiConstants.investorProfile(investorCode);
+    final uri = Uri.parse(url);
+    final response = await http.get(uri, headers: {
       'Authorization': 'Bearer $token',
       'Content-Type': 'application/json',
     });
 
+    log(response.body);
     if (response.statusCode == 200) {
       final jsonData = json.decode(response.body);
       final data = jsonData['data']['investor'];

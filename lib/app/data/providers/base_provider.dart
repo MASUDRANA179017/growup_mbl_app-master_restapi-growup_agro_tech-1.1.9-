@@ -51,45 +51,47 @@ abstract class BaseConnect extends GetConnect {
     });
   }
 
-  Future<T?> safeApiCall<T>({
-    required Future<Response> Function() request,
-    required T Function(Map<String, dynamic>) onSuccess,
-    bool showSuccessSnackBar = true,
-  }) async {
-    if(!NetworkUtils.instance.isConnected){
-      getSnackBar('No Internet!. Please connect to the network!');
-      return null;
+
+}
+
+Future<T?> safeApiCall<T>({
+  required Future<Response> Function() request,
+  required T Function(Map<String, dynamic>) onSuccess,
+  bool showSuccessSnackBar = true,
+}) async {
+  if(!NetworkUtils.instance.isConnected){
+    getSnackBar('No Internet!. Please connect to the network!');
+    return null;
+  }
+  final response = await request();
+
+  if (response.status.hasError) {
+    String message = "Something went wrong!";
+
+    try {
+      message = ErrorResponse.fromJson(
+        jsonDecode(response.bodyString ?? ""),
+      ).message ?? message;
+    } catch (e) {
+      debugPrint(e.toString());
     }
-    final response = await request();
 
-    if (response.status.hasError) {
-      String message = "Something went wrong!";
-
-      try {
-        message = ErrorResponse.fromJson(
-          jsonDecode(response.bodyString ?? ""),
-        ).message ?? message;
-      } catch (e) {
-        debugPrint(e.toString());
-      }
-
-      if (response.statusCode != 404) {
-        Utils.showProviderError(response.statusCode, message);
-      }
-      return null;
-    } else {
-      final data = jsonDecode(response.bodyString ?? "");
-      final result = onSuccess(data);
-
-      if (showSuccessSnackBar && data['message'] != null) {
-        getSnackBar(
-          data['message'],
-          title: 'Success',
-          color: greenColor,
-          icon: Icons.done,
-        );
-      }
-      return result;
+    if (response.statusCode != 404) {
+      Utils.showProviderError(response.statusCode, message);
     }
+    return null;
+  } else {
+    final data = jsonDecode(response.bodyString ?? "");
+    final result = onSuccess(data);
+
+    if (showSuccessSnackBar && data['message'] != null) {
+      getSnackBar(
+        data['message'],
+        title: 'Success',
+        color: greenColor,
+        icon: Icons.done,
+      );
+    }
+    return result;
   }
 }

@@ -137,7 +137,8 @@ class ApiConstants {
       "$baseUrl/investor/project-list?id=$investorId";
 
   //All products
-  static String products(String investorCode) => "$baseUrl/products?investor_code=$investorCode";
+  static String products(String investorCode) => "https://ecommerce.growupagro.online/api/products-data";
+  // static String products(String investorCode) => "$baseUrl/products?investor_code=$investorCode";
 
   //logout
   static String logout = "$baseUrl/investor/logout";

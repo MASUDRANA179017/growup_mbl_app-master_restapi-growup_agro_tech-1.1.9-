@@ -84,7 +84,7 @@ class _ShortProjectsPageState extends State<ShortProjectsPage> {
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> decoded = json.decode(response.body);
-      final List<dynamic>? shortTermProjects = decoded['projects']?['Short Term'];
+      final List<dynamic>? shortTermProjects = decoded['data']?['Short Term'];
 
       if (shortTermProjects == null) throw Exception('Short Term projects not found.');
 

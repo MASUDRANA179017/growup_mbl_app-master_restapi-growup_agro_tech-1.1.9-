@@ -4,6 +4,7 @@ import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:growup_agro/app/data/providers/base_provider.dart';
 import 'package:growup_agro/app/routes/app_pages.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher_string.dart';
@@ -179,7 +180,8 @@ class MyLoginController extends GetxController with GetTickerProviderStateMixin 
       throw Exception('Connection timed out');
     } on HttpException {
       throw Exception('Server error');
-    } catch (e) {
+    } catch (e, stack) {
+      debugPrintStack(stackTrace: stack);
       throw Exception('Unexpected login error');
     }
   }

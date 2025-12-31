@@ -83,7 +83,7 @@ class _LongProjectsPageState extends State<LongProjectsPage> {
 
     if (response.statusCode == 200) {
       final Map<String, dynamic> decoded = json.decode(response.body);
-      final List<dynamic>? longProjects = decoded['projects']?['Long Term'];
+      final List<dynamic>? longProjects = decoded['data']?['Long Term'];
 
       if (longProjects == null) throw Exception('Long Term projects not found.');
 

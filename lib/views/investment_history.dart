@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:growup_agro/utils/api_constants.dart';
 import 'package:growup_agro/views/investment_detail_page.dart';
@@ -113,10 +114,12 @@ class _InvestmentHistoryPageState extends State<InvestmentHistoryPage> {
     }
 
     final url = Uri.parse(ApiConstants.investmentHistory(investorCode));
+    log(url.path);
     final response = await http.get(
       url,
       headers: {'Accept': 'application/json', 'Authorization': 'Bearer $token'},
     );
+    log(response.body);
 
     if (response.statusCode == 200) {
       final body = json.decode(response.body);

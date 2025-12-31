@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:growup_agro/utils/api_constants.dart';
 import 'package:http/http.dart' as http;
@@ -89,12 +90,14 @@ class _ProjectInvestmentDetailPageState
       ),
     );
 
+    log(url.path);
     try {
       final response = await http.get(
         url,
         headers: {'Authorization': 'Bearer $token'},
       );
 
+      log(response.body);
       if (response.statusCode == 200) {
         final List data = json.decode(response.body)['data'];
         setState(() {

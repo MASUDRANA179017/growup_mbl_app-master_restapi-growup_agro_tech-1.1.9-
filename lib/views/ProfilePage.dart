@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:growup_agro/utils/api_constants.dart';
@@ -266,8 +267,9 @@ class _InvestorProfilePageState extends State<InvestorProfilePage> {
     try {
       final prefs = await SharedPreferences.getInstance();
       final token = prefs.getString('auth_token') ?? '';
-
-      final url = Uri.parse(ApiConstants.updateInvestorInfo);
+      final uri = ApiConstants.updateInvestorInfo;
+      log(uri);
+      final url = Uri.parse(uri);
 
       // Prepare multipart request
       var request = http.MultipartRequest('POST', url);
@@ -388,6 +390,7 @@ class _InvestorProfilePageState extends State<InvestorProfilePage> {
             : ApiConstants.updateNomineeInfo,
       );
 
+      log(url.path);
       final response = await http.post(
         url,
         headers: {
@@ -400,6 +403,7 @@ class _InvestorProfilePageState extends State<InvestorProfilePage> {
 
       final result = json.decode(response.body);
 
+      log(result);
       if ((result['success'] ?? false) ||
           result['message'] == "Nominee information saved successfully") {
         ScaffoldMessenger.of(context).showSnackBar(
