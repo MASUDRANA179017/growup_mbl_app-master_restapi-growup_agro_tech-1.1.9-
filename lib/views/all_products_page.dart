@@ -8,7 +8,6 @@ import 'package:growup_agro/views/product_details.dart';
 import 'package:growup_agro/widgets/custom_button.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
-import '../models/all_products_model.dart';
 
 class AllProductsPage extends StatefulWidget {
   const AllProductsPage({super.key});
@@ -80,42 +79,47 @@ class _AllProductsPageState extends State<AllProductsPage> {
     if (screenWidth >= 600) crossAxisCount = 3;
     if (screenWidth >= 900) crossAxisCount = 4;
 
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "Product Lists",
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
-          ),
-        ),
-        backgroundColor: const Color(0xFF2E7D32),
-        foregroundColor: Colors.white,
-      ),
-      backgroundColor: Colors.white,
-      body: isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : Padding(
-              padding: const EdgeInsets.all(10),
-              child: MasonryGridView.count(
-                controller: _scrollController,
-                crossAxisCount: crossAxisCount,
-                mainAxisSpacing: 10,
-                crossAxisSpacing: 10,
-                itemCount: products.length,
-                itemBuilder: (context, index) {
-                  return _buildProductCard(context, products[index]);
-                },
-              ),
+    return RefreshIndicator(
+      onRefresh: ()async{
+        await fetchProducts();
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text(
+            "Product Lists",
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
             ),
-      floatingActionButton: _showBackToTopButton
-          ? FloatingActionButton(
-              onPressed: _scrollToTop,
-              backgroundColor: Colors.orange,
-              child: const Icon(Icons.arrow_upward, color: Colors.white),
-            )
-          : null,
+          ),
+          backgroundColor: const Color(0xFF2E7D32),
+          foregroundColor: Colors.white,
+        ),
+        backgroundColor: Colors.white,
+        body: isLoading
+            ? const Center(child: CircularProgressIndicator())
+            : Padding(
+                padding: const EdgeInsets.all(10),
+                child: MasonryGridView.count(
+                  controller: _scrollController,
+                  crossAxisCount: crossAxisCount,
+                  mainAxisSpacing: 10,
+                  crossAxisSpacing: 10,
+                  itemCount: products.length,
+                  itemBuilder: (context, index) {
+                    return _buildProductCard(context, products[index]);
+                  },
+                ),
+              ),
+        floatingActionButton: _showBackToTopButton
+            ? FloatingActionButton(
+                onPressed: _scrollToTop,
+                backgroundColor: Colors.orange,
+                child: const Icon(Icons.arrow_upward, color: Colors.white),
+              )
+            : null,
+      ),
     );
   }
 
@@ -223,8 +227,7 @@ class _AllProductsPageState extends State<AllProductsPage> {
                 ),
                 const SizedBox(height: 4),
                 Text(
-                  "TODO:",
-                  // product.categoryName,
+                  product.categories?.first ?? '',
                   style: TextStyle(fontSize: 11, color: Colors.grey.shade600),
                 ),
                 const SizedBox(height: 6),

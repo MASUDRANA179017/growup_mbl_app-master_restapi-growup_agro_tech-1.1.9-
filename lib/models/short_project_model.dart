@@ -45,7 +45,7 @@ class ShortProjectModel {
     // print("DEBUG JSON: $json");
     // print("DEBUG investment_goal value: ${json['investment_goal']}");
     return ShortProjectModel(
-      name: json['name'] ?? json['project_name'],
+      name: json['name'] ?? json['name'],
       businessType_name: json['businessType_name'] ?? 'N/A',
       id: json['id'],
       remaining_opportunity_days:

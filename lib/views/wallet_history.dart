@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:growup_agro/app/component/logger/print_global.dart';
 import 'package:growup_agro/models/wallet_history_model.dart';
 import 'package:growup_agro/utils/api_constants.dart';
 import 'package:growup_agro/widgets/pagination_footer.dart';
@@ -44,11 +45,14 @@ class _WalletHistoryPageState extends State<WalletHistoryPage> {
         throw Exception("Missing token or investor code");
       }
 
+      final url = Uri.parse(ApiConstants.walletHistory(investorCode));
+      globalPrint(url.path);
       final response = await http.get(
         Uri.parse(ApiConstants.walletHistory(investorCode)),
         headers: {'Authorization': 'Bearer $token', 'Accept': 'application/json'},
       );
 
+      globalPrint(response.body);
       if (response.statusCode == 200) {
         final body = json.decode(response.body);
         final List data = body['data'];

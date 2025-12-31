@@ -43,7 +43,7 @@ class LongProjectModel {
 
   factory LongProjectModel.fromJson(Map<String, dynamic> json) {
     return LongProjectModel(
-      name: json['name'] ?? json['project_name'],
+      name: json['name'] ?? json['name'],
       businessType_name: json['businessType_name'] ?? 'N/A',
       id: json['id'],
       remaining_opportunity_days: int.tryParse(json['remaining_opportunity_days'].toString()) ?? 0,

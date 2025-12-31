@@ -91,11 +91,11 @@ class _AllPropertiesPageState extends State<AllPropertiesPage> {
           ),
           backgroundColor: const Color(0xFF2E7D32),
           centerTitle: true,
-          actions: [
-            IconButton(onPressed: (){
-              fetchProperties();
-            }, icon: Icon(Icons.eighteen_mp))
-          ],
+          // actions: [
+          //   IconButton(onPressed: (){
+          //     fetchProperties();
+          //   }, icon: Icon(Icons.eighteen_mp))
+          // ],
         ),
         backgroundColor: Colors.white,
         body: FutureBuilder<AllPropertiesResponse?>(

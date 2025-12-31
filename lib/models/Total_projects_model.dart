@@ -42,7 +42,7 @@ class TotalProject {
   factory TotalProject.fromJson(Map<String, dynamic> json) {
     return TotalProject(
       id: json['id'],
-      projectName: json['project_name'],
+      projectName: json['name'],
       roi_start_date: json['roi_start_date']?.toString() ?? 'N/A',
       businessType_name: json['businessType_name'] ?? 'N/A',
       projectCode: json['project_code'],

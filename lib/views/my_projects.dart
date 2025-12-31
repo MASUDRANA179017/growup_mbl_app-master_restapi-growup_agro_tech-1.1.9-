@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:growup_agro/app/component/logger/print_global.dart';
 import 'package:growup_agro/models/my_projects_model.dart';
 import 'package:growup_agro/utils/api_constants.dart';
 import 'package:growup_agro/views/project_Descriotion_page.dart';
@@ -60,6 +61,7 @@ class _MyProjectsPageState extends State<MyProjectsPage> {
     }
 
     final url = Uri.parse(ApiConstants.investorProjectList(investorId));
+    globalPrint(url.path);
     final response = await http.get(
       url,
       headers: {
@@ -68,6 +70,7 @@ class _MyProjectsPageState extends State<MyProjectsPage> {
       },
     );
 
+    globalPrint(response.body);
     if (response.statusCode == 200) {
       final decoded = json.decode(response.body);
       final List<dynamic>? projects = decoded['data'];
