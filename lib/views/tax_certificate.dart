@@ -26,6 +26,7 @@ class _TaxCertificatePageState extends State<TaxCertificatePage>
   @override
   void initState() {
     super.initState();
+    certificatesFuture = Future.value([]);
     _loadInvestorCode();
   }
 

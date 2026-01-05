@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/request/request.dart';
+import 'package:growup_agro/app/component/logger/print_global.dart';
 
 import '../../component/logger/api_logger.dart';
 import '../../theme/colors.dart';
@@ -58,13 +60,20 @@ Future<T?> safeApiCall<T>({
   required Future<Response> Function() request,
   required T Function(Map<String, dynamic>) onSuccess,
   bool showSuccessSnackBar = true,
+  bool showLoading = true,
+  RxBool? isLoading ,
 }) async {
+  isLoading?.value = true;
+  if(showLoading) EasyLoading.show();
+
   if(!NetworkUtils.instance.isConnected){
     getSnackBar('No Internet!. Please connect to the network!');
+    if(showLoading) EasyLoading.dismiss();
+    isLoading?.value = false;
     return null;
   }
   final response = await request();
-
+  globalPrint(response.bodyString);
   if (response.status.hasError) {
     String message = "Something went wrong!";
 
@@ -79,6 +88,8 @@ Future<T?> safeApiCall<T>({
     if (response.statusCode != 404) {
       Utils.showProviderError(response.statusCode, message);
     }
+    if(showLoading) EasyLoading.dismiss();
+    isLoading?.value = false;
     return null;
   } else {
     final data = jsonDecode(response.bodyString ?? "");
@@ -92,6 +103,8 @@ Future<T?> safeApiCall<T>({
         icon: Icons.done,
       );
     }
+    if(showLoading) EasyLoading.dismiss();
+    isLoading?.value = false;
     return result;
   }
 }
