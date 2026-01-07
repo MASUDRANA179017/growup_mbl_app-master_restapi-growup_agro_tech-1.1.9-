@@ -51,6 +51,9 @@ class ApiConstants {
 
   // 🔹 All Properties (packages) endpoint
   static String get allProperties => "$baseUrl/properties";
+  static String get allPropertiesNew => "$baseUrl/all-properties";
+  static String allPropertiesDetails(String investorCode, String projectId)=> "${baseUrl}/investor/property-details?investor_code=$investorCode&project_id=$projectId";
+
 
 // 🔹 Property or package image builder
   static String getPackageImage(String? path) {

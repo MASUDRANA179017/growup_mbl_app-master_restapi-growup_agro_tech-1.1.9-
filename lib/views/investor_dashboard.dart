@@ -9,6 +9,7 @@ import 'package:growup_agro/utils/api_constants.dart';
 import 'package:growup_agro/views/NotificationPage.dart';
 import 'package:growup_agro/views/all_projects.dart';
 import 'package:growup_agro/views/all_properties.dart';
+import 'package:growup_agro/views/all_property_new.dart';
 import 'package:growup_agro/views/auto_slider_card.dart';
 import 'package:growup_agro/views/commercial_city.dart';
 import 'package:growup_agro/views/global_insights.dart';
@@ -1659,7 +1660,7 @@ class _DashboardInvestorState extends State<DashboardInvestor> {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) =>
-                                      const AllPropertiesPage(),
+                                      const AllPropertiesPageNew(),
                                 ),
                               );
                             },

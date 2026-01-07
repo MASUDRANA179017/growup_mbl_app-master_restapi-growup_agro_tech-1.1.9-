@@ -6,6 +6,7 @@ import 'package:growup_agro/utils/api_constants.dart';
 import 'package:growup_agro/views/all_products_page.dart';
 import 'package:growup_agro/views/all_projects.dart';
 import 'package:growup_agro/views/all_properties.dart';
+import 'package:growup_agro/views/all_property_new.dart';
 import 'package:growup_agro/views/investor_dashboard.dart';
 import 'package:growup_agro/widgets/bottom_nav_bar.dart';
 import 'package:growup_agro/widgets/custom_button.dart';
@@ -30,7 +31,7 @@ class _MainScreenState extends State<MainScreen> {
     DashboardInvestor(), // index 0
     AllProjectsPage(),
     AllProductsPage(),
-    AllPropertiesPage(),
+    AllPropertiesPageNew(),
   ];
 
   void _onItemTapped(int index) {

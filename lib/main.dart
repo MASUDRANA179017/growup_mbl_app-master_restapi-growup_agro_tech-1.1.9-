@@ -7,6 +7,7 @@ import 'package:growup_agro/views/about_us_page.dart';
 import 'package:growup_agro/views/all_products_page.dart';
 import 'package:growup_agro/views/all_projects.dart';
 import 'package:growup_agro/views/all_properties.dart';
+import 'package:growup_agro/views/all_property_new.dart';
 import 'package:growup_agro/views/blogs_web.dart';
 import 'package:growup_agro/views/certificates_web.dart';
 import 'package:growup_agro/views/desposit_page.dart';
@@ -70,7 +71,7 @@ class MyApp extends StatelessWidget {
         '/investmenthistory': (context) => const InvestmentHistoryPage(),
 
         '/products': (context) => const AllProductsPage(),
-        '/properties': (context) => const AllPropertiesPage(),
+        '/properties': (context) => const AllPropertiesPageNew(),
 
 
         //Wallet
